@@ -66,16 +66,14 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
       <td colspan="4" style="text-align: center;"><h2>... Sayfaları</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/general/headers/Web_Screen_Shot_2.jpg" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/general/headers/Web_Screen_Shot.jpg" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/3.png" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Ana Ekran ve ... Sayfası</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/4.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/5.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/general/headers/Web_Screen_Shot_2.jpg" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/general/headers/Web_Screen_Shot.jpg" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/6.png" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
