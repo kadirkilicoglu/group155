@@ -10,6 +10,7 @@ Bora BAŞTÜRK * Developer
 
 # Ürün Adı: TriAI
 <img src="bootcampFiles/general/headers/triai_major_logo.png" alt="triai" width="250"/>
+<img src="bootcampFiles/general/headers/triai_product_logo.png" alt="triai" width="250"/>
 
 
 ## Ürün Açıklaması: TriAI
@@ -21,7 +22,6 @@ Bu sistem özellikle:
 - Acil servislerdeki yoğunluğun azaltılmasına yardımcı olur,
 - Kırsal bölgelerde yaşayan veya sağlık hizmetine hızlı erişimi olmayan bireyler için rehberlik sunar.
 
-<img src="bootcampFiles/general/headers/triai_product_logo.png" alt="triai" width="250"/>
 
 *Başlıca Özellikler:*
 
