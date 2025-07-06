@@ -1,24 +1,24 @@
 # Takım ve Ürün Adı
-![triai](bootcampFiles/general/headers/triai_major_logo.png)
+<img src="bootcampFiles/general/headers/triai_major_logo.png" alt="triai" width="250"/>
 
 AI155 - TriAI
-
 
 ## Takım ve Ürün Hakkında Bilgiler
 
 **Takım Üyeleri**
 
-Dilara ÇAKIR * Scrum Master
-Abdulkadir KILIÇOĞLU * Product Owner
-Elif BÜLBÜL * Developer
-Duygu YILMAZ * Developer
+Dilara ÇAKIR * Scrum Master  
+Abdulkadir KILIÇOĞLU * Product Owner  
+Elif BÜLBÜL * Developer  
+Duygu YILMAZ * Developer  
 Bora BAŞTÜRK * Developer
 
 ## Ürün Açıklaması
 
-![triai](bootcampFiles/general/headers/triai_product_logo.png)
+<img src="bootcampFiles/general/headers/triai_product_logo.png" alt="triai" width="250"/>
 
-Bu uygulama, yapay zeka destekli bir ön tanı ve triyaj sınıflandırma uygulamasıdır. Kullanıcılardan alınan semptom bilgilerine göre, onların sağlık durumlarını analiz eder ve aciliyet düzeylerini yeşil (düşük risk), sarı (orta risk), kırmızı (yüksek risk) olarak sınıflandırır.
+Bu uygulama, yapay zeka destekli bir ön tanı ve triyaj sınıflandırma uygulamasıdır... 
+Kullanıcılardan alınan semptom bilgilerine göre, onların sağlık durumlarını analiz eder ve aciliyet düzeylerini yeşil (düşük risk), sarı (orta risk), kırmızı (yüksek risk) olarak sınıflandırır.
 Bu sistem özellikle:
 - Hastaneye gitmeden önce durumunu değerlendirmek isteyen kullanıcılar için ön bilgi sağlar,
 - Acil servislerdeki yoğunluğun azaltılmasına yardımcı olur,
