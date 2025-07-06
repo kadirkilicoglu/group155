@@ -2,11 +2,11 @@
 
 **Takım Üyeleri**
 
-Dilara ÇAKIR * Scrum Master  
-Abdulkadir KILIÇOĞLU * Product Owner  
-Elif BÜLBÜL * Developer  
-Duygu YILMAZ * Developer  
-Bora BAŞTÜRK * Developer
+Dilara ÇAKIR * Scrum Master  www.linkedin.com/in/dilara-çakır-55312a270
+Abdulkadir KILIÇOĞLU * Product Owner  www.linkedin.com/in/abdulkadirkilicoglu
+Elif BÜLBÜL * Developer  https://www.linkedin.com/in/elif-bulbul/
+Duygu YILMAZ * Developer  www.linkedin.com/in/duygu-irem-yilmaz-599b25258
+Bora BAŞTÜRK * Developer  www.linkedin.com/in/borabasturk
 
 # Ürün Adı: TriAI
 <img src="bootcampFiles/general/headers/triai_major_logo.png" alt="triai" width="250"/> <img src="bootcampFiles/general/headers/triai_product_logo.png" alt="triai" width="250"/>
@@ -22,7 +22,7 @@ Bu sistem özellikle:
 - Kırsal bölgelerde yaşayan veya sağlık hizmetine hızlı erişimi olmayan bireyler için rehberlik sunar.
 
 
-*Başlıca Özellikler:*
+**Ürün Özellikleri**
 
 - Semptom Analizi: Kullanıcının serbest metinle yazdığı semptomları analiz eder.
 - Yapay Zeka Yorumlama: Gemini modeli ile semptomları bağlama göre değerlendirir.
@@ -30,8 +30,6 @@ Bu sistem özellikle:
 - Bilgilendirici Tavsiye: Kullanıcıya, belirtilen duruma uygun öneri verir.
 - Web Tabanlı Arayüz: Tüm cihazlardan erişilebilen sade ve hızlı bir web uygulaması.
 - Geçmiş Sorgular: Kullanıcı önceki sorgularını görebilir.
-
-**Ürün Özellikleri**
 
 **Hedef Kitle**
 
