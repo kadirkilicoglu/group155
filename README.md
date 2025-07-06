@@ -8,7 +8,7 @@ Abdulkadir KILIÇOĞLU * Product Owner  www.linkedin.com/in/abdulkadirkilicoglu
 
 Elif BÜLBÜL * Developer  https://www.linkedin.com/in/elif-bulbul/
 
-Duygu YILMAZ * Developer  www.linkedin.com/in/duygu-irem-yilmaz-599b25258
+Duygu İrem YILMAZ * Developer  www.linkedin.com/in/duygu-irem-yilmaz-599b25258
 
 Bora BAŞTÜRK * Developer  www.linkedin.com/in/borabasturk
 
