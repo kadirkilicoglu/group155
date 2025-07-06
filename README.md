@@ -12,16 +12,6 @@ Bora BAŞTÜRK * Developer
 <img src="bootcampFiles/general/headers/triai_major_logo.png" alt="triai" width="250"/>
 
 
-## Takım ve Ürün Hakkında Bilgiler
-
-**Takım Üyeleri**
-
-Dilara ÇAKIR * Scrum Master  
-Abdulkadir KILIÇOĞLU * Product Owner  
-Elif BÜLBÜL * Developer  
-Duygu YILMAZ * Developer  
-Bora BAŞTÜRK * Developer
-
 ## Ürün Açıklaması: TriAI
 
 Bu uygulama, yapay zeka destekli bir ön tanı ve triyaj sınıflandırma uygulamasıdır... 
