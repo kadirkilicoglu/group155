@@ -1,7 +1,7 @@
 # Takım ve Ürün Adı
 <img src="bootcampFiles/general/headers/triai_major_logo.png" alt="triai" width="250"/>
 
-AI155 - TriAI
+Ai155 - Sempteams
 
 ## Takım ve Ürün Hakkında Bilgiler
 
@@ -13,9 +13,7 @@ Elif BÜLBÜL * Developer
 Duygu YILMAZ * Developer  
 Bora BAŞTÜRK * Developer
 
-## Ürün Açıklaması
-
-<img src="bootcampFiles/general/headers/triai_product_logo.png" alt="triai" width="250"/>
+## Ürün Açıklaması: TriAI
 
 Bu uygulama, yapay zeka destekli bir ön tanı ve triyaj sınıflandırma uygulamasıdır... 
 Kullanıcılardan alınan semptom bilgilerine göre, onların sağlık durumlarını analiz eder ve aciliyet düzeylerini yeşil (düşük risk), sarı (orta risk), kırmızı (yüksek risk) olarak sınıflandırır.
@@ -23,6 +21,8 @@ Bu sistem özellikle:
 - Hastaneye gitmeden önce durumunu değerlendirmek isteyen kullanıcılar için ön bilgi sağlar,
 - Acil servislerdeki yoğunluğun azaltılmasına yardımcı olur,
 - Kırsal bölgelerde yaşayan veya sağlık hizmetine hızlı erişimi olmayan bireyler için rehberlik sunar.
+
+<img src="bootcampFiles/general/headers/triai_product_logo.png" alt="triai" width="250"/>
 
 *Başlıca Özellikler:*
 
@@ -92,14 +92,42 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 
   - **Sprint içinde beklenen puan tamamlama**: 200 puan
   - **Puan Tamamlama Mantığı**: `(200 points completed)` Ekibin iş yoğunlu, okul durumu olsada görevler tamamlanmaya çalışıldı.
-  - **Daily Scrum**: ""
-  - **Product Backlog URL:** 
-  - **Sprint Review:**
+  - **Daily Scrum**: "
     
+    •⁠  ⁠Platform: Google Meet  
+    •⁠  ⁠Sıklık: Haftalık toplantılar  
+    •⁠  ⁠İçerik:  
+      - Kim ne yapıyor?  
+      - Karşılaşılan engeller  
+      - Sapmalar var mı?  
+    •⁠  ⁠Notlar: WhatsApp üzerinden saklanmaktadır
+  "
+  - **Product Backlog URL:** 
+  https://trello.com/b/ZeRCIMNF/trello-panom
+  - **Sprint Review:**
+    "
+    *Tamamlananlar:*
+- Ürün fikri netleştirildi  
+- Teknolojik yapı belirlendi  
+- Semptom analiz mimarisi tanımlandı  
+- Gemini LLM örnek istekleri araştırıldı  
+
+*Eksik Kalanlar:*
+- UI bileşenleri sadece taslak seviyesinde
+    "
 
   - **Sprint Review Participants:** Dilara ÇAKIR, Abdulkadir KILIÇOĞLU, Elif BÜLBÜL, Duygu YILMAZ, Bora BAŞTÜRK 
   - **Sprint Retrospective:**
-    ""
+    "
+  İyi Gidenler:
+  •⁠  ⁠Takım içi iletişim akıcıydı  
+  •⁠  ⁠Hızlı fikir birliği sağlandı  
+  •⁠  ⁠Görev dağılımı net yapıldı
+
+  Geliştirilmesi Gerekenler:
+  •⁠  ⁠Daily scrum saatleri düzenli ve daha sık olmalı  
+  •⁠  ⁠Dokümantasyon zamanında GitHub’a aktarılmalı
+    "
 
 
   
