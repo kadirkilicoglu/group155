@@ -66,7 +66,8 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
       <td colspan="4" style="text-align: center;"><h2> Ana Ekran Sayfaları</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/3.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/1.jpg" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/2.jpg" style="max-width: 100%; height: auto;"></td>
     </tr>
   </table>
   </details>   
