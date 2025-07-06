@@ -1,5 +1,5 @@
 # Takım ve Ürün Adı
-![triai](bootcampFiles/general/headers/triaiLogo.png)
+![triai](bootcampFiles/general/headers/triai_major_logo.png)
 
 AI155 - TriAI
 
@@ -15,6 +15,8 @@ Duygu YILMAZ * Developer
 Bora BAŞTÜRK * Developer
 
 ## Ürün Açıklaması
+
+![triai](bootcampFiles/general/headers/triai_product_logo.png)
 
 Bu uygulama, yapay zeka destekli bir ön tanı ve triyaj sınıflandırma uygulamasıdır. Kullanıcılardan alınan semptom bilgilerine göre, onların sağlık durumlarını analiz eder ve aciliyet düzeylerini yeşil (düşük risk), sarı (orta risk), kırmızı (yüksek risk) olarak sınıflandırır.
 Bu sistem özellikle:
