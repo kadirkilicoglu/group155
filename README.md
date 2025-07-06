@@ -3,9 +3,13 @@
 **Takım Üyeleri**
 
 Dilara ÇAKIR * Scrum Master  www.linkedin.com/in/dilara-çakır-55312a270
+
 Abdulkadir KILIÇOĞLU * Product Owner  www.linkedin.com/in/abdulkadirkilicoglu
+
 Elif BÜLBÜL * Developer  https://www.linkedin.com/in/elif-bulbul/
+
 Duygu YILMAZ * Developer  www.linkedin.com/in/duygu-irem-yilmaz-599b25258
+
 Bora BAŞTÜRK * Developer  www.linkedin.com/in/borabasturk
 
 # Ürün Adı: TriAI
