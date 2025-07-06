@@ -63,9 +63,10 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
     <summary><h3>Sprint 1 - App Screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>... Sayfaları</h2></td>
+      <td colspan="4" style="text-align: center;"><h2> Ana Ekran Sayfaları</h2></td>
     </tr>
     <tr>
+<<<<<<< Updated upstream
       <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/3.png" style="max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
@@ -82,6 +83,10 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
     <tr>
       <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/7.png" style="max-width: 100%; height: auto;"></td>
       <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/8.png" style="max-width: 100%; height: auto;"></td>
+=======
+      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/1.jpg" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/2.jpg" style="max-width: 100%; height: auto;"></td>
+>>>>>>> Stashed changes
     </tr>
   </table>
   </details>   
@@ -89,19 +94,14 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 
   <details>
     <summary><h3>Sprint 1 - Sprint Board Update Screenshots</h3></summary>
-    <img src="bootcampFiles/sprintOne/boardupdate/1.jpeg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/boardupdate/2.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintOne/boardupdate/1.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintOne/boardupdate/2.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintOne/boardupdate/3.png" style="max-width: 100%; height: auto;">
   </details>
 
   <details>
     <summary><h3>Sprint 1 - Proje Takip Aracı</h3></summary>
     <img src="bootcampFiles/sprintOne/proje_takip/1.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/proje_takip/2.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/proje_takip/3.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/proje_takip/4.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/proje_takip/5.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/proje_takip/6.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/proje_takip/7.png" style="max-width: 100%; height: auto;">
   </details>
 
 
