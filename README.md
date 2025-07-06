@@ -78,6 +78,7 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
     <img src="bootcampFiles/sprintOne/boardupdate/1.png" style="max-width: 100%; height: auto;">
     <img src="bootcampFiles/sprintOne/boardupdate/2.png" style="max-width: 100%; height: auto;">
     <img src="bootcampFiles/sprintOne/boardupdate/3.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintOne/boardupdate/4.png" style="max-width: 100%; height: auto;">
   </details>
 
   <details>
