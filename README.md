@@ -1,4 +1,4 @@
-# Takım ve Ürün Adı
+# Sempteams (AI 155) ve ürünü TriAI
 <img src="bootcampFiles/general/headers/triai_major_logo.png" alt="triai" width="250"/>
 
 Ai155 - Sempteams
@@ -90,8 +90,15 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
     "İlk sprint sürecinde görev dağılımı yapıldı. Herkesten kod yazması istenmesi üzerine görevlerde ortak payda sağlanarak herkesin olağan uygunluk durumuna göre yapabilirlik seviyesine göre görevlerde rol alması sağlandı.
 İlk olarak tasarımın canvada yapılmasına karar verildi."
 
-  - **Sprint içinde beklenen puan tamamlama**: 200 puan
-  - **Puan Tamamlama Mantığı**: `(200 points completed)` Ekibin iş yoğunlu, okul durumu olsada görevler tamamlanmaya çalışıldı.
+  - **Sprint içinde beklenen puan tamamlama**: 13 puan
+  - **Puan Tamamlama Mantığı**: "
+| Ürün fikrinin ve vizyonunun netleştirilmesi | 3 SP | Araştırma ve ekip içi tartışmalar |
+| Teknolojik altyapının belirlenmesi | 2 SP | LLM, frontend ve backend seçimleri |
+| Semptom analiz akışının planlanması | 3 SP | Kullanıcıdan veri alma ve işleme |
+| Gemini LLM kullanım araştırması | 3 SP | API + NLP senaryoları |
+| UI mockup taslağı oluşturulması | 2 SP | Giriş ve sonuç ekranlarının temel taslağı |
+  
+  "
   - **Daily Scrum**: "
     
     •⁠  ⁠Platform: Google Meet  
