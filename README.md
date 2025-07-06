@@ -1,4 +1,13 @@
 # Takım Adı: Sempteams
+
+**Takım Üyeleri**
+
+Dilara ÇAKIR * Scrum Master  
+Abdulkadir KILIÇOĞLU * Product Owner  
+Elif BÜLBÜL * Developer  
+Duygu YILMAZ * Developer  
+Bora BAŞTÜRK * Developer
+
 # Ürün Adı: TriAI
 <img src="bootcampFiles/general/headers/triai_major_logo.png" alt="triai" width="250"/>
 
