@@ -1,7 +1,6 @@
 # Sempteams (AI 155) ve ürünü TriAI
 <img src="bootcampFiles/general/headers/triai_major_logo.png" alt="triai" width="250"/>
 
-Ai155 - Sempteams
 
 ## Takım ve Ürün Hakkında Bilgiler
 
