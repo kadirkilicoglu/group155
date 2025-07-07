@@ -125,44 +125,49 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
     "
 
   - **Sprint Review Participants:** Dilara ÇAKIR, Abdulkadir KILIÇOĞLU, Elif BÜLBÜL, Duygu YILMAZ, Bora BAŞTÜRK 
-# Sprint 1 - Retrospective
 
-## What Went Well
 
-- **Effective Team Communication:**  
-  Team members were able to express their ideas clearly, and decisions were made collaboratively. No one was left out of the discussion, which helped us reach consensus quickly.
+# Sprint 1 - Retrospective 
 
-- **Well-Balanced Task Distribution:**  
-  Tasks were assigned based on each member’s technical skill set and availability. Everyone had the opportunity to contribute to coding tasks, in line with the initial goal.
+## İyi Gidenler
 
-- **Focus on Sprint Goals:**  
-  Major objectives such as finalizing the product idea, determining the tech stack, and designing the symptom analysis architecture were completed as planned.
+- **Takım İçi İletişim Güçlüydü:**  
+  Ekip üyeleri fikirlerini açıkça ifade edebildi ve karar alma süreçlerinde herkesin katkısı oldu. Bu durum fikir birliğine hızlı bir şekilde ulaşılmasını sağladı.
 
----
+- **Görev Dağılımı Verimliydi:**  
+  Görevler, ekip üyelerinin teknik yeterliliklerine ve uygunluk durumlarına göre dengeli şekilde dağıtıldı. Herkesin kodlama sürecine katkı sağlaması teşvik edildi ve büyük ölçüde başarıldı.
 
-## What Could Be Improved
-
-- **Insufficient Frequency of Daily Scrums:**  
-  Only one meeting per week was held, which led to delays in identifying certain blockers or progress gaps. More frequent check-ins would improve workflow visibility.
-
-- **Delayed Documentation:**  
-  Important discussions and decisions (especially technical ones) were mostly shared via WhatsApp and not documented in a centralized manner (e.g., GitHub). This created difficulty in tracking progress and referencing previous decisions.
-
-- **Limited UI Mockups:**  
-  While a basic UI draft was started in Canva, it covered only the entry and result screens. For better user experience design, we need to create mockups for additional screens like symptom input, results, and user profile.
+- **Sprint Hedeflerine Odaklanıldı:**  
+  Ürün fikri, teknolojik yapı ve semptom analiz mimarisi gibi temel sprint hedefleri başarıyla tamamlandı. Önceden belirlenen story point’lerin çoğu yerine getirildi.
 
 ---
 
-##  Action Items for Next Sprint
+##  Geliştirilmesi Gerekenler
 
-- **Increase Scrum Frequency:**  
-  We'll schedule at least **two short stand-ups per week** via Google Meet to keep everyone aligned on progress and blockers.
+- **Daily Scrum Toplantı Frekansı Yetersizdi:**  
+  Haftada yalnızca bir kez yapılan toplantılar, bazı sorunların geç fark edilmesine yol açtı. Daha sık toplantılar ile süreç daha kontrollü ilerleyebilirdi.
 
-- **Centralized Documentation on GitHub:**  
-  Each team member will upload their completed work (code, research notes, diagrams, etc.) to GitHub on a **weekly basis**. A checklist will be created on Trello for tracking this.
+- **Dokümantasyon Eksikliği:**  
+  WhatsApp üzerinden yapılan birçok teknik tartışma ve karar, GitHub veya ortak bir dokümantasyon alanına aktarılmadı. Bu durum bilgi kaybına ve takibin zorlaşmasına neden oldu.
 
-- **UI Mockup Expansion:**  
-  The UI design will be extended to include all relevant screens and user flows. Figma or Canva will be used, and the designs will be versioned on GitHub.
+- **UI Mockup Yetersiz Kaldı:**  
+  Canva üzerinden sadece giriş ve sonuç ekranları tasarlandı. Kullanıcı deneyimi açısından daha fazla ekran taslağına ihtiyaç duyulmakta.
+
+---
+
+##  Aksiyon Adımları (Bir Sonraki Sprint İçin)
+
+- **Daily Scrum Toplantıları Artırılacak:**  
+  Haftada en az 2 kez kısa Google Meet toplantıları yapılacak. Bu toplantılarda görev durumu, engeller ve sapmalar değerlendirilecek.
+
+- **GitHub Üzerinden Düzenli Dokümantasyon:**  
+  Her ekip üyesi kendi sorumlu olduğu işi (kod, araştırma çıktısı, mimari çizimler vb.) haftalık olarak GitHub’a yükleyecek. Bu süreç Trello üzerinden kontrol edilecek.
+
+- **UI Mockup Genişletilecek:**  
+  Sadece giriş ve sonuç ekranları ile sınırlı kalmayacak şekilde; semptom girişi, analiz sonucu ve kullanıcı profili ekranları da tasarlanacak. Taslaklar Canva veya Figma üzerinden hazırlanacak ve GitHub’a yüklenecek.
+
+
+
 
 
 
