@@ -113,7 +113,7 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
   - **Product Backlog URL:** 
   https://trello.com/b/ZeRCIMNF/trello-panom
   - **Sprint Review:**
-    "
+    
     *Tamamlananlar:*
 - Ürün fikri netleştirildi  
 - Teknolojik yapı belirlendi  
@@ -125,17 +125,46 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
     "
 
   - **Sprint Review Participants:** Dilara ÇAKIR, Abdulkadir KILIÇOĞLU, Elif BÜLBÜL, Duygu YILMAZ, Bora BAŞTÜRK 
-  - **Sprint Retrospective:**
-    "
-  İyi Gidenler:
-  •⁠  ⁠Takım içi iletişim akıcıydı  
-  •⁠  ⁠Hızlı fikir birliği sağlandı  
-  •⁠  ⁠Görev dağılımı net yapıldı
+# Sprint 1 - Retrospective
 
-  Geliştirilmesi Gerekenler:
-  •⁠  ⁠Daily scrum saatleri düzenli ve daha sık olmalı  
-  •⁠  ⁠Dokümantasyon zamanında GitHub’a aktarılmalı
-    "
+## What Went Well
+
+- **Effective Team Communication:**  
+  Team members were able to express their ideas clearly, and decisions were made collaboratively. No one was left out of the discussion, which helped us reach consensus quickly.
+
+- **Well-Balanced Task Distribution:**  
+  Tasks were assigned based on each member’s technical skill set and availability. Everyone had the opportunity to contribute to coding tasks, in line with the initial goal.
+
+- **Focus on Sprint Goals:**  
+  Major objectives such as finalizing the product idea, determining the tech stack, and designing the symptom analysis architecture were completed as planned.
+
+---
+
+## What Could Be Improved
+
+- **Insufficient Frequency of Daily Scrums:**  
+  Only one meeting per week was held, which led to delays in identifying certain blockers or progress gaps. More frequent check-ins would improve workflow visibility.
+
+- **Delayed Documentation:**  
+  Important discussions and decisions (especially technical ones) were mostly shared via WhatsApp and not documented in a centralized manner (e.g., GitHub). This created difficulty in tracking progress and referencing previous decisions.
+
+- **Limited UI Mockups:**  
+  While a basic UI draft was started in Canva, it covered only the entry and result screens. For better user experience design, we need to create mockups for additional screens like symptom input, results, and user profile.
+
+---
+
+##  Action Items for Next Sprint
+
+- **Increase Scrum Frequency:**  
+  We'll schedule at least **two short stand-ups per week** via Google Meet to keep everyone aligned on progress and blockers.
+
+- **Centralized Documentation on GitHub:**  
+  Each team member will upload their completed work (code, research notes, diagrams, etc.) to GitHub on a **weekly basis**. A checklist will be created on Trello for tracking this.
+
+- **UI Mockup Expansion:**  
+  The UI design will be extended to include all relevant screens and user flows. Figma or Canva will be used, and the designs will be versioned on GitHub.
+
+
 
 
   
