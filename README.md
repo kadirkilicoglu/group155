@@ -228,8 +228,9 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 Kim ne yapıyor?
 Karşılaşılan engeller
 Sapmalar var mı?
-•⁠ ⁠Notlar: WhatsApp üzerinden saklanmaktadır "
-Product Backlog URL: https://trello.com/b/ZeRCIMNF/trello-panom
+•⁠ ⁠Notlar: WhatsApp üzerinden saklanmaktadır 
+
+•⁠Product Backlog URL: https://trello.com/b/ZeRCIMNF/trello-panom
 
 
 ###  Sprint Review
