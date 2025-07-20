@@ -167,7 +167,8 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
   Sadece giriş ve sonuç ekranları ile sınırlı kalmayacak şekilde; semptom girişi, analiz sonucu ve kullanıcı profili ekranları da tasarlanacak. Taslaklar Canva veya Figma üzerinden hazırlanacak ve GitHub’a yüklenecek.
 
 
-##  Sprint 2 
+<details>
+    <summary><h1>Sprint 2</h1></summary>
 
 ###  Sprint Notları
 
