@@ -225,7 +225,10 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 
 •⁠ ⁠Sıklık: Haftalık toplantılar
 
-•⁠ ⁠İçerik:Kim ne yapıyor?Karşılaşılan engellerSapmalar var mı?
+•⁠ ⁠İçerik:
+- Kim ne yapıyor?  
+- Karşılaşılan engeller  
+- Sapmalar var mı?  
 
 •⁠ ⁠Notlar: WhatsApp üzerinden saklanmaktadır 
 
