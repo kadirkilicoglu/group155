@@ -174,6 +174,34 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 <details>
     <summary><h1>Sprint 2</h1></summary>
 
+<details>
+    <summary><h3>Sprint 2 - App Screenshots</h3></summary>
+  <table style="width: 100%;">
+    <tr>
+      <td colspan="4" style="text-align: center;"><h2> Ana Ekran Sayfaları</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshoot/1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshoot/2.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshoot/3.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshoot/4.png" style="max-width: 100%; height: auto;"></td>
+    </tr>
+  </table>
+  </details>
+
+<details>
+    <summary><h3>Sprint 2 - Sprint Board Update Screenshots</h3></summary>
+    <img src="bootcampFiles/sprintTwo/boardupdate/1.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/boardupdate/2.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/boardupdate/3.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/boardupdate/4.jpeg" style="max-width: 100%; height: auto;">
+  </details>
+
+
+ <details>
+    <summary><h3>Sprint 2 - Proje Takip Aracı</h3></summary>
+    <img src="bootcampFiles/sprintTwo/proje_takip/1.png" style="max-width: 100%; height: auto;">
+  </details>
 
     
 ###  Sprint Notları
