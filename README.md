@@ -223,11 +223,7 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 
 •⁠ ⁠Platform: Google Meet
 •⁠ ⁠Sıklık: Haftalık toplantılar
-•⁠ ⁠İçerik:
-
-Kim ne yapıyor?
-Karşılaşılan engeller
-Sapmalar var mı?
+•⁠ ⁠İçerik:Kim ne yapıyor?Karşılaşılan engellerSapmalar var mı?
 •⁠ ⁠Notlar: WhatsApp üzerinden saklanmaktadır 
 
 •⁠Product Backlog URL: https://trello.com/b/ZeRCIMNF/trello-panom
