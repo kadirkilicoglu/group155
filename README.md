@@ -166,6 +166,9 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 - **UI Mockup Genişletilecek:**  
   Sadece giriş ve sonuç ekranları ile sınırlı kalmayacak şekilde; semptom girişi, analiz sonucu ve kullanıcı profili ekranları da tasarlanacak. Taslaklar Canva veya Figma üzerinden hazırlanacak ve GitHub’a yüklenecek.
 
+  
+</details>
+
 
 <details>
   <summary><strong>Sprint 2</strong></summary>
