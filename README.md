@@ -181,26 +181,26 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
       <td colspan="4" style="text-align: center;"><h2> </h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshots/1.jpg" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshots/2.jpg" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshots/3.jpg" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshots/4.jpg" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshots/1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshots/2.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshots/3.jpeg" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintTwo/screenshots/4.jpeg" style="max-width: 100%; height: auto;"></td>
     </tr>
   </table>
   </details>
 
 <details>
     <summary><h3>Sprint 2 - Sprint Board Update Screenshots</h3></summary>
-    <img src="bootcampFiles/sprintTwo/boardupdate/1.jpg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintTwo/boardupdate/2.jpg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintTwo/boardupdate/3.jpg" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintTwo/boardupdate/4.jpg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/boardupdate/1.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/boardupdate/2.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/boardupdate/3.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/boardupdate/4.jpeg" style="max-width: 100%; height: auto;">
   </details>
 
 
  <details>
     <summary><h3>Sprint 2 - Proje Takip Aracı</h3></summary>
-    <img src="bootcampFiles/sprintTwo/proje_takip/1.jpg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/proje_takip/1.jpeg" style="max-width: 100%; height: auto;">
   </details>
 
     
