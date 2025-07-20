@@ -168,7 +168,7 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 
 
 <details>
-    <summary><h1>Sprint 2</h1></summary>
+  <summary><strong>Sprint 2</strong></summary>
 
 ###  Sprint Notları
 
