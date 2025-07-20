@@ -63,7 +63,7 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
     <summary><h3>Sprint 1 - App Screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
-      <td colspan="4" style="text-align: center;"><h2> Ana Ekran Sayfaları</h2></td>
+      <td colspan="4" style="text-align: center;"><h2> </h2></td>
     </tr>
     <tr>
       <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/1.jpg" style="max-width: 100%; height: auto;"></td>
@@ -75,15 +75,15 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 
   <details>
     <summary><h3>Sprint 1 - Sprint Board Update Screenshots</h3></summary>
-    <img src="bootcampFiles/sprintOne/boardupdate/1.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/boardupdate/2.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/boardupdate/3.png" style="max-width: 100%; height: auto;">
-    <img src="bootcampFiles/sprintOne/boardupdate/4.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintOne/boardupdate/1.jpg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintOne/boardupdate/2.jpg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintOne/boardupdate/3.jpg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintOne/boardupdate/4.jpg" style="max-width: 100%; height: auto;">
   </details>
 
   <details>
     <summary><h3>Sprint 1 - Proje Takip Aracı</h3></summary>
-    <img src="bootcampFiles/sprintOne/proje_takip/1.png" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintTwo/proje_takip/1.jpg" style="max-width: 100%; height: auto;">
   </details>
 
 
