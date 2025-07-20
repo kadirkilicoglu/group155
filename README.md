@@ -167,6 +167,71 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
   Sadece giriş ve sonuç ekranları ile sınırlı kalmayacak şekilde; semptom girişi, analiz sonucu ve kullanıcı profili ekranları da tasarlanacak. Taslaklar Canva veya Figma üzerinden hazırlanacak ve GitHub’a yüklenecek.
 
 
+##  Sprint 2 
+
+###  Sprint Notları
+
+- Sprint 2'de temel amaç: API katmanının oluşturulması, veri tabanının tamamlanması ve arayüzün temel şemasının geliştirilmesiydi.
+- Geri bildirim sisteminin ve kullanıcı rol mantığının kurulması hedeflendi.
+- Kullanıcı rolleri (Admin, Doktor, Hemşire) için temel erişim kontrolleri ve ilgili endpointler oluşturuldu.
+
+---
+
+###  Tahmin Edilen Tamamlanacak Puan ve Tahmin Mantığı
+
+| Task | Story Point (SP) | Tahmin Gerekçesi |
+|------|------------------|------------------|
+| Kullanıcı rolleri için veritabanı oluşturulması | 3 SP | Orta seviye, CRUD gerektiriyor |
+| `FastAPI` ile authentication ve role-check yapısı | 5 SP | Kullanıcı doğrulama ve yönlendirme mantığı içeriyor |
+| Doktor geri bildirim (feedback) modülünün geliştirilmesi | 5 SP | Hem frontend hem backend bağlantısı var |
+| Prediction endpoint şeması tasarımı | 3 SP | Placeholder logic ve yönlendirme içeriyor |
+| Arayüzde temel tasarım ve API bağlantı başlangıcı | 3 SP | Mobil responsive tasarım hazırlığı |
+
+**Toplam SP:** 19 SP  
+**Sprint hedefi başarı oranı:** %90 (Feedback'te kontrol fonksiyonu eksik olabilir)
+
+---
+
+###  Sprint Gelişmeleri (Sprint Board Updates)
+
+| Durum | Task |
+|-------|------|
+| ✅ Yapıldı | Kullanıcı rolleri endpointleri (`/admin`) |
+| ✅ Yapıldı | Geri bildirim API'leri (`/feedback`) |
+| ✅ Yapıldı | Prediction API endpointleri (`/prediction`) |
+| 🟡 Devam Ediyor | Arayüzün API bağlantıları (axios + test) |
+| 🔲 Planlandı | LLM ile gerçek model bağlantısı |
+
+---
+
+###  Ekran Görüntüleri
+
+>  `routers/` klasöründe yapılan modüler endpoint yapısı  
+>  `feedback` formu veri modeli – `ModelFeedbackRequest`  
+>  Trello Sprint Board'dan görev durumu ekranı  
+>  Veritabanı şeması diyagramı (istenirse SS veya ERD şeması eklenebilir)
+
+---
+
+###  Sprint Review
+
+- Kullanıcı yönetimi ve rol bazlı erişim başarılı şekilde kuruldu.
+- `FastAPI` üzerinden JSON tabanlı örnek veri ile testler yapıldı.
+- Model prediction kısmı henüz placeholder durumunda, 3. sprintte LLM bağlantısı yapılacak.
+- Doktor geri bildirimi ile yapay zekayı eğitmeye yönelik temel yapı tamamlandı.
+
+---
+
+###  Sprint Retrospective
+
+| Soru | Yanıt |
+|------|-------|
+| **Ne iyi gitti?** | Backend API tasarımı planlandığı gibi tamamlandı. |
+| **Ne geliştirilebilir?** | Arayüz ile API bağlantıları daha erken entegre edilebilirdi. |
+| **Hangi engeller vardı?** | Ekipte birkaç kişi şehir dışındaydı, async ilerlemek zor oldu. |
+| **İyileştirme önerisi?** | Erken testler ve otomasyon entegrasyonu planlandı. |
+
+
 
 
 
