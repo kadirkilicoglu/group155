@@ -219,6 +219,18 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 >  Veritabanı şeması diyagramı (istenirse SS veya ERD şeması eklenebilir)
 
 ---
+### Daily Scrum: 
+
+•⁠ ⁠Platform: Google Meet
+•⁠ ⁠Sıklık: Haftalık toplantılar
+•⁠ ⁠İçerik:
+
+Kim ne yapıyor?
+Karşılaşılan engeller
+Sapmalar var mı?
+•⁠ ⁠Notlar: WhatsApp üzerinden saklanmaktadır "
+Product Backlog URL: https://trello.com/b/ZeRCIMNF/trello-panom
+
 
 ###  Sprint Review
 
