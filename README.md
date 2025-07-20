@@ -170,9 +170,12 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
 </details>
 
 
-<details>
-  <summary><strong>Sprint 2</strong></summary>
 
+<details>
+    <summary><h1>Sprint 2</h1></summary>
+
+
+    
 ###  Sprint Notları
 
 - Sprint 2'de temel amaç: API katmanının oluşturulması, veri tabanının tamamlanması ve arayüzün temel şemasının geliştirilmesiydi.
