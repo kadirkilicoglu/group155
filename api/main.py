@@ -3,6 +3,7 @@ from models import Base
 from database import engine
 from routers.prediction import router as prediction_router
 from routers.admin import router as admin_router
+from routers.authentication import router as authentication_router
 from contextlib import asynccontextmanager
 
 @asynccontextmanager
@@ -19,3 +20,4 @@ app = FastAPI(lifespan = lifespan)
 
 app.include_router(prediction_router)
 app.include_router(admin_router)
+app.include_router(authentication_router)

@@ -5,11 +5,22 @@ from models import Base, UserRole, User
 from database import engine, SessionLocal
 from typing import Annotated
 
+from passlib.context import CryptContext
+from datetime import timedelta, datetime, timezone
+
+from jose import jwt, JWTError
+
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+
 
 router = APIRouter(
     prefix="/authentication",
     tags=["Authentication"]
 )
+
+
+SECRET_KEY = "lCnyOy0pF4sgi3EKWzYnWSupx4pGWrNU"
+ALGORITHM = "HS256"
 
 
 def get_session():
@@ -23,10 +34,77 @@ def get_session():
 SessionDep = Annotated[Session, Depends(get_session)]
 
 
-@router.get("/login", response_model=User)
-async def login():
+bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+oauth2_bearer = OAuth2PasswordBearer(tokenUrl="/authentication/token")
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+def create_acces_token(username: str, user_id: int, role: int, expires_delta: timedelta):
     """
-    Endpoint to handle user login.
-    This is a placeholder function and should be implemented with actual logic.
+    Create a JWT access token.
     """
-    return {"message": "This endpoint will handle user login."}
+    payload = {"sub": username, "id": user_id, "role": role}
+    expires = datetime.now(timezone.utc) + expires_delta
+    payload.update({"exp": expires})
+    return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+
+
+def authenticate_user(username: str, password: str, db: SessionDep):
+    """
+    Authenticate a user by checking the username and password.
+    """
+    user = db.query(User).filter(User.user_email == username).first()
+    if not user:
+        return False
+    if not bcrypt_context.verify(password, user.user_hashed_password):
+        return False
+    return user
+
+
+async def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
+    """
+    Get the current user from the JWT token.
+    """
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        user_id: int = payload.get("id")
+        user_role: int = payload.get("role")
+        if username is None or user_id is None or user_role is None:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid authentication credentials",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+        return {"username": username, "user_id": user_id, "role_id": user_role}
+    except JWTError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid authentication credentials",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+
+@router.post("/token", response_model = Token)
+async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
+                                 db: SessionDep):
+    user = authenticate_user(form_data.username, form_data.password, db)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    
+    token = create_acces_token(
+        username=user.user_email,
+        user_id=user.user_id,
+        role=user.user_role_id,
+        expires_delta=timedelta(minutes=30)
+    )
+
+    return {"access_token": token, "token_type": "bearer"}
