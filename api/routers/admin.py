@@ -7,6 +7,13 @@ from typing import Annotated
 
 from routers.authentication import get_current_user, bcrypt_context
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+ADMIN_ROLE_ID = int(os.getenv("ADMIN_ROLE_ID"))
+
 
 
 router = APIRouter(
@@ -47,7 +54,7 @@ async def get_user_roles(user: UserDep, session: SessionDep):
     """
     if user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
-    if user["role_id"] != 1:  # Assuming role 1 is admin
+    if user["role_id"] != ADMIN_ROLE_ID:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to access this resource")
     roles = session.query(UserRole).all()
     return roles
@@ -60,7 +67,7 @@ async def create_user_role(user: UserDep, role_request: UserRoleRequest, session
     """
     if user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
-    if user["role_id"] != 1:  # Assuming role 1 is admin
+    if user["role_id"] != ADMIN_ROLE_ID:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to access this resource")
     existing_role = session.query(UserRole).filter(UserRole.role_name == role_request.role_name).first()
     if existing_role:
@@ -73,7 +80,19 @@ async def create_user_role(user: UserDep, role_request: UserRoleRequest, session
     session.refresh(role)
     return role
 
-### Needs to be implemented
+
+@router.get("/get_users", status_code=status.HTTP_200_OK)
+async def get_users(user: UserDep, session: SessionDep):
+    """
+    Endpoint to retrieve all users.
+    """
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
+    if user["role_id"] != ADMIN_ROLE_ID:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to access this resource")
+    users = session.query(User).all()
+    return users
+
 
 @router.post("/create_user", status_code=status.HTTP_201_CREATED)
 async def create_user(user: UserDep, db : SessionDep, create_user_request: UserRequest):
@@ -82,7 +101,7 @@ async def create_user(user: UserDep, db : SessionDep, create_user_request: UserR
     """
     if user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
-    if user["role_id"] != 1:
+    if user["role_id"] != ADMIN_ROLE_ID:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to access this resource")
     
     existing_user = db.query(User).filter(User.user_email == create_user_request.username).first()
@@ -99,30 +118,68 @@ async def create_user(user: UserDep, db : SessionDep, create_user_request: UserR
     db.add(user)
     db.commit()
 
-@router.post("/create_user_first_admin", status_code=status.HTTP_201_CREATED)
-async def create_user(db : SessionDep, user_request: UserRequest):
+
+#@router.post("/create_user_first_admin", status_code=status.HTTP_201_CREATED)
+#async def create_user(db : SessionDep, user_request: UserRequest):
     """
-    Endpoint to create a new user.
+    Endpoint to create the first admin user.
+    This endpoint is used to set up the initial admin user for the application.
     """
-    user = User(
-        user_email=user_request.username,
-        user_first_name=user_request.first_name,
-        user_last_name=user_request.last_name,
-        user_role_id=user_request.role,
-        user_hashed_password=bcrypt_context.hash(user_request.password)
-    )
-    db.add(user)
-    db.commit()
+    #user = User(
+        #user_email=user_request.username,
+        #user_first_name=user_request.first_name,
+        #user_last_name=user_request.last_name,
+        #user_role_id=user_request.role,
+        #user_hashed_password=bcrypt_context.hash(user_request.password)
+    #)
+    #db.add(user)
+    #db.commit()
 
 
-@router.get("/get_users", status_code=status.HTTP_200_OK)
-async def get_users(user: UserDep, session: SessionDep):
+@router.put("/update_user/{user_id}", status_code=status.HTTP_200_OK)
+async def update_user(user: UserDep, db: SessionDep, user_request: UserRequest, user_id: int = Path(..., description="ID of the user to update", ge=1)):
     """
-    Endpoint to retrieve all users.
+    Endpoint to update an existing user.
     """
     if user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
-    if user["role_id"] != 1:  # Assuming role 1 is admin
+    if user["role_id"] != ADMIN_ROLE_ID:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to access this resource")
-    users = session.query(User).all()
-    return users
+    
+    existing_user = db.query(User).filter(User.user_id == user_id).first()
+    if not existing_user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+    
+    if user_request.first_name:
+        existing_user.user_first_name = user_request.first_name
+    if user_request.last_name:
+        existing_user.user_last_name = user_request.last_name
+    if user_request.role:
+        if not db.query(UserRole).filter(UserRole.role_id == user_request.role).first():
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Role does not exist")    
+        existing_user.user_role_id = user_request.role
+    if user_request.password:
+        existing_user.user_hashed_password = bcrypt_context.hash(user_request.password)
+    
+    db.add(existing_user)
+    db.commit()
+
+    db.refresh(existing_user)
+
+
+@router.delete("/delete_user/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_user(user: UserDep, db: SessionDep, user_id: int = Path(..., description="ID of the user to delete", ge=1)):
+    """
+    Endpoint to delete an existing user.
+    """
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
+    if user["role_id"] != ADMIN_ROLE_ID:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to access this resource")
+    
+    existing_user = db.query(User).filter(User.user_id == user_id).first()
+    if not existing_user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+    
+    db.delete(existing_user)
+    db.commit()

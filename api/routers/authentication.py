@@ -12,15 +12,23 @@ from jose import jwt, JWTError
 
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
+from dotenv import load_dotenv
+
+import os
+
 
 router = APIRouter(
     prefix="/authentication",
     tags=["Authentication"]
 )
 
+load_dotenv()
 
-SECRET_KEY = "lCnyOy0pF4sgi3EKWzYnWSupx4pGWrNU"
-ALGORITHM = "HS256"
+# Constants for JWT token creation
+# Moved to a separate config file or environment variables in production
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
 
 
 def get_session():
@@ -104,7 +112,7 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
         username=user.user_email,
         user_id=user.user_id,
         role=user.user_role_id,
-        expires_delta=timedelta(minutes=30)
+        expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     )
 
     return {"access_token": token, "token_type": "bearer"}
