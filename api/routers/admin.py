@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
-from models import Base, UserRole, User
-from database import engine, SessionLocal
+from ..models import Base, UserRole, User
+from ..database import engine, SessionLocal
 from typing import Annotated
 
-from routers.authentication import get_current_user, bcrypt_context
+from .authentication import get_current_user, bcrypt_context
 
 import os
 from dotenv import load_dotenv
@@ -119,21 +119,21 @@ async def create_user(user: UserDep, db : SessionDep, create_user_request: UserR
     db.commit()
 
 
-#@router.post("/create_user_first_admin", status_code=status.HTTP_201_CREATED)
-#async def create_user(db : SessionDep, user_request: UserRequest):
+@router.post("/create_user_first_admin", status_code=status.HTTP_201_CREATED)
+async def create_user(db : SessionDep, user_request: UserRequest):
     """
     Endpoint to create the first admin user.
     This endpoint is used to set up the initial admin user for the application.
     """
-    #user = User(
-        #user_email=user_request.username,
-        #user_first_name=user_request.first_name,
-        #user_last_name=user_request.last_name,
-        #user_role_id=user_request.role,
-        #user_hashed_password=bcrypt_context.hash(user_request.password)
-    #)
-    #db.add(user)
-    #db.commit()
+    user = User(
+        user_email=user_request.username,
+        user_first_name=user_request.first_name,
+        user_last_name=user_request.last_name,
+        user_role_id=user_request.role,
+        user_hashed_password=bcrypt_context.hash(user_request.password)
+    )
+    db.add(user)
+    db.commit()
 
 
 @router.put("/update_user/{user_id}", status_code=status.HTTP_200_OK)

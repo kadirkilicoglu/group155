@@ -1,10 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException, Path, status
+from fastapi import APIRouter, Depends, HTTPException, Path, status, Request, Form
+from starlette import status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
-from models import Base, UserRole, User
-from database import engine, SessionLocal
+from ..models import Base, UserRole, User
+from ..database import engine, SessionLocal
 from typing import Annotated
 
+from fastapi.responses import RedirectResponse
 from passlib.context import CryptContext
 from datetime import timedelta, datetime, timezone
 
@@ -13,8 +15,11 @@ from jose import jwt, JWTError
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 from dotenv import load_dotenv
+from fastapi.templating import Jinja2Templates
 
 import os
+
+templates = Jinja2Templates(directory=os.path.join("api", "templates"))
 
 
 router = APIRouter(
@@ -116,3 +121,27 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
     )
 
     return {"access_token": token, "token_type": "bearer"}
+
+@router.post("/login")
+async def login(request: Request, email: str = Form(...), password: str = Form(...), db: Session = Depends(get_session)):
+    user = db.query(User).filter(User.user_email == email).first()
+
+    if not user or not bcrypt_context.verify(password, user.user_hashed_password):
+        return templates.TemplateResponse("login.html", {
+            "request": request,
+            "error": "Email veya şifre hatalı"
+        })
+
+    role = db.query(UserRole).filter(UserRole.role_id == user.user_role_id).first()
+
+    if role and role.role_name == "admin":
+        return RedirectResponse(url="/authentication/admin-page", status_code=303)
+
+    return templates.TemplateResponse("login.html", {
+        "request": request,
+        "error": "Yetersiz yetki"
+    })
+
+@router.get("/admin-page")
+async def admin_page(request: Request):
+    return templates.TemplateResponse("admin-page.html", {"request": request})
