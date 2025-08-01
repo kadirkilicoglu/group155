@@ -1,5 +1,6 @@
 from database import Base
 from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = "users"
@@ -11,6 +12,8 @@ class User(Base):
     user_last_name = Column(String)
     user_hashed_password = Column(String)
 
+    role = relationship("UserRole", back_populates="users")
+
 
 class UserRole(Base):
     __tablename__ = "user_roles"
@@ -18,6 +21,8 @@ class UserRole(Base):
     role_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     role_name = Column(String, unique=True)
     role_description = Column(String)
+
+    users = relationship("User", back_populates="role")
 
 
 class Patient(Base):
