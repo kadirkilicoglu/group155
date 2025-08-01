@@ -1,0 +1,142 @@
+/* Genel Ayarlar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #fefae0, #e9edc9, #fef6e4, #fcd5ce);
+  min-height: 100vh;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  width: 100%;
+  background: #f9f5f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text h1 {
+  font-size: 24px;
+  color: #000;
+}
+
+.logo-text p {
+  font-size: 14px;
+  color: #444;
+}
+
+.header-buttons .btn {
+  margin-left: 10px;
+}
+
+/* Butonlar */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn.green {
+  background-color: #4CAF50;
+}
+
+.btn.green:hover {
+  background-color: #45a049;
+}
+
+.btn.red {
+  background-color: #f44336;
+}
+
+.btn.red:hover {
+  background-color: #d7372b;
+}
+
+/* Form Alanları */
+main {
+  width: 100%;
+  max-width: 600px;
+  padding: 40px 20px;
+}
+
+.form-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+input, select {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 2px solid #000;
+  outline: none;
+}
+
+select {
+  appearance: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Ayraç */
+hr {
+  margin: 40px 0;
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-buttons {
+    margin-top: 10px;
+  }
+
+  .form-section h2 {
+    font-size: 24px;
+  }
+}

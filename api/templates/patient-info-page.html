@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasta Bilgileri - TriAI</title>
+  <link rel="stylesheet" href="/api/static/css/patient-info-page.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="TriAI Logo">
+      <div class="title">
+        <h1>TriAI</h1>
+        <p>Yapay Zeka Destekli Triaj Sistemi Asistanınız</p>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="green">Ana Sayfa</button>
+      <button class="red">Hasta Bilgi Sayfası</button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h2 class="section-title">Hasta Bilgileri</h2>
+
+    <form class="patient-form">
+      <div class="form-grid">
+        <!-- Sol Sütun -->
+        <div class="form-column">
+          <input type="text" placeholder="İsim" class="input">
+          <input type="text" placeholder="Cinsiyet" class="input">
+          <input type="text" placeholder="gg/AA/yyyy" class="input">
+          <select class="input">
+            <option>Travma Durumu</option>
+            <option>Yok</option>
+            <option>Var</option>
+          </select>
+          <select class="input">
+            <option>Geliş Şekli</option>
+            <option>Ambulans</option>
+            <option>Kendi İmkanlarıyla</option>
+          </select>
+          <input type="text" placeholder="Ana Şikayet" class="input">
+          <select class="input">
+            <option>Bilinç</option>
+            <option>Açık</option>
+            <option>Kapalı</option>
+          </select>
+        </div>
+
+        <!-- Sağ Sütun -->
+        <div class="form-column">
+          <input type="text" placeholder="Soyisim" class="input">
+          <input type="email" placeholder="Hasta Mail" class="input">
+          <input type="number" placeholder="Yaş" class="input">
+          <select class="input">
+            <option>Ağrı Düzeyi</option>
+            <option>0 - Yok</option>
+            <option>1 - Hafif</option>
+            <option>2 - Orta</option>
+            <option>3 - Şiddetli</option>
+          </select>
+          <input type="text" placeholder="SBP" class="input">
+          <input type="text" placeholder="HR" class="input">
+          <input type="text" placeholder="RR" class="input">
+          <input type="text" placeholder="BT" class="input">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="save-btn">Kaydet</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TriAI - Personel Yönetimi</title>
+  <link rel="stylesheet" href="/api/static/css/admin-page.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="TriAI Logo">
+      <div class="logo-text">
+        <h1>TriAI</h1>
+        <p>Yapay Zeka Destekli Triaj Sistemi Asistanınız</p>
+      </div>
+    </div>
+    <div class="header-buttons">
+      <button class="btn green">Ana Sayfa</button>
+      <button class="btn red">Admin Sayfası</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Personel Ekle</h2>
+      <form class="form-add">
+        <input type="email" placeholder="Mail Adresi Giriniz" required>
+        <input type="password" placeholder="Şifre Giriniz" required>
+        <select required>
+          <option disabled selected>Personel/Doktor</option>
+          <option value="personel">Personel</option>
+          <option value="doktor">Doktor</option>
+        </select>
+        <button type="submit" class="btn green">Kaydet</button>
+      </form>
+    </section>
+
+    <hr>
+
+    <section class="form-section">
+      <h2>Personel Sil</h2>
+      <form class="form-delete">
+        <input type="email" placeholder="Mail Adresi Giriniz" required>
+        <button type="submit" class="btn red">Sil</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

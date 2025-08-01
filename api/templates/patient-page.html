@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TriAI - Hasta Giriş & Kayıt</title>
+  <link rel="stylesheet" href="/api/static/css/patient-page.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="TriAI Logo" />
+      <div class="title">
+        <h1>TriAI</h1>
+        <p>Yapay Zeka Destekli Triaj Sistemi Asistanınız</p>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="green">Ana Sayfa</button>
+      <button class="red">Hasta Giriş Sayfası</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-container">
+      <h2>Hasta Giriş</h2>
+      <input type="email" placeholder="Hasta Mail" class="input" />
+      <button class="submit">Giriş</button>
+    </section>
+
+    <section class="form-container">
+      <h2>Hasta Kayıt</h2>
+      <div class="row">
+        <input type="text" placeholder="İsim" class="input" />
+        <input type="text" placeholder="Soyisim" class="input" />
+      </div>
+      <input type="email" placeholder="Hasta Mail" class="input full-width" />
+      <div class="row">
+        <select class="input">
+          <option value="">Doğum Yılı</option>
+          <!-- Yıllar dinamik olarak eklenebilir -->
+          <option value="2000">2000</option>
+          <option value="2001">2001</option>
+        </select>
+
+        <!-- Cinsiyet Seçimi için Radio Buttons -->
+        <div class="gender-selection">
+          <label>
+            <input type="radio" name="gender" value="female" class="gender" />
+            Kadın
+          </label>
+          <label>
+            <input type="radio" name="gender" value="male" class="gender" />
+            Erkek
+          </label>
+        </div>
+      </div>
+      <button class="submit">Oluştur</button>
+    </section>
+  </main>
+</body>
+</html>
