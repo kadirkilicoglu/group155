@@ -34,7 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // JWT token içeriğini çöz (base64 decode)
       const payload = JSON.parse(atob(token.split(".")[1]));
 
-      const roleId = payload.role;
+      console.log("Decoded JWT Payload:", payload);
+
+      const roleId = payload.user_role.role_id;
+
+      console.log("User Role ID:", roleId);
 
       // Rol bazlı yönlendirme
       if (roleId === 1) {

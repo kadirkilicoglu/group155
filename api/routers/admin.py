@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, status
-from request_models import UserRequest, UserRoleRequest
+from request_models import UserRequest, RoleRequest
 from sqlalchemy.orm import Session
 from models import Base, UserRole, User
 from database import engine, SessionLocal
@@ -38,7 +38,7 @@ async def get_roles(user: UserDep, session: SessionDep):
     
 
 @router.post("/create_role", status_code=status.HTTP_201_CREATED)
-async def create_role(user: UserDep, role_request: UserRoleRequest, session: SessionDep):
+async def create_role(user: UserDep, role_request: RoleRequest, session: SessionDep):
     """
     Endpoint to create a new user role.
     """
@@ -57,7 +57,7 @@ async def create_role(user: UserDep, role_request: UserRoleRequest, session: Ses
 
 
 @router.post("/create_role_without_auth", status_code=status.HTTP_201_CREATED)
-async def create_role(role_request: UserRoleRequest, session: SessionDep):
+async def create_role(role_request: RoleRequest, session: SessionDep):
     """
     Endpoint to create a new user role.
     """
@@ -75,7 +75,7 @@ async def create_role(role_request: UserRoleRequest, session: SessionDep):
 
 
 @router.put("/update_role/{role_id}", status_code=status.HTTP_200_OK)
-async def update_role(user: UserDep, role_id: int, role_request: UserRoleRequest, session: SessionDep):
+async def update_role(user: UserDep, role_id: int, role_request: RoleRequest, session: SessionDep):
     """
     Endpoint to update an existing user role.
     """

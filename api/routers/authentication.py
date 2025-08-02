@@ -142,7 +142,7 @@ async def login(request: Request, email: str = Form(...), password: str = Form(.
 
     role = db.query(UserRole).filter(UserRole.role_id == user.user_role_id).first()
 
-    if role and role.role_name == "admin":
+    if role and role.role_name == "Admin":
         return RedirectResponse(url="/authentication/admin-page", status_code=303)
 
     return templates.TemplateResponse("login.html", {
