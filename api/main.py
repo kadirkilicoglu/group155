@@ -1,10 +1,10 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
-from .models import Base
-from .database import engine
-from .routers.prediction import router as prediction_router
-from .routers.admin import router as admin_router
-from .routers.authentication import router as authentication_router
+from models import Base
+from database import engine
+from routers.prediction import router as prediction_router
+from routers.admin import router as admin_router
+from routers.authentication import router as authentication_router
 from contextlib import asynccontextmanager
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates

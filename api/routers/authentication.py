@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, Path, status, Request, Fo
 from starlette import status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
-from ..models import Base, UserRole, User
-from ..database import engine, SessionLocal
+from models import Base, UserRole, User
+from database import engine, SessionLocal
 from typing import Annotated
 
 from fastapi.responses import RedirectResponse
