@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, status
-from pydantic import BaseModel, Field
+from request_models import UserRequest, UserRoleRequest
 from sqlalchemy.orm import Session
 from models import Base, UserRole, User
 from database import engine, SessionLocal
@@ -25,55 +25,6 @@ def get_session():
 
 SessionDep = Annotated[Session, Depends(get_session)]
 UserDep = Annotated[dict, Depends(get_current_user)]
-
-
-class UserRoleRequest(BaseModel):
-
-    role_name: str = Field(..., example="Admin", description="Name of the user role", min_length=1, max_length=50)
-    role_description: str = Field(..., example="Administrator with full access", description="Description of the user role", min_length=1, max_length=255, nullable=True)
-
-    can_create_user: bool = Field(default=False, example=True, description="Permission to create a user")
-    can_edit_user: bool = Field(default=False, example=True, description="Permission to edit a user")
-    can_delete_user: bool = Field(default=False, example=True, description="Permission to delete a user")
-    can_view_user: bool = Field(default=False, example=True, description="Permission to view a user")
-
-    can_create_role: bool = Field(default=False, example=True, description="Permission to create a user role")
-    can_edit_role: bool = Field(default=False, example=True, description="Permission to edit a user role")
-    can_delete_role: bool = Field(default=False, example=True, description="Permission to delete a user role")
-    can_view_role: bool = Field(default=False, example=True, description="Permission to view a user role")
-
-    can_create_patient: bool = Field(default=False, example=True, description="Permission to create a patient")
-    can_edit_patient: bool = Field(default=False, example=True, description="Permission to edit a patient")
-    can_delete_patient: bool = Field(default=False, example=True, description="Permission to delete a patient")
-    can_view_patient: bool = Field(default=False, example=True, description="Permission to view a patient")
-
-    can_create_entry: bool = Field(default=False, example=True, description="Permission to create an entry")
-    can_edit_entry: bool = Field(default=False, example=True, description="Permission to edit an entry")
-    can_delete_entry: bool = Field(default=False, example=True, description="Permission to delete an entry")
-    can_view_entry: bool = Field(default=False, example=True, description="Permission to view an entry")
-
-    can_create_prediction: bool = Field(default=False, example=True, description="Permission to create a prediction")
-    can_edit_prediction: bool = Field(default=False, example=True, description="Permission to edit a prediction")
-    can_delete_prediction: bool = Field(default=False, example=True, description="Permission to delete a prediction")
-    can_view_prediction: bool = Field(default=False, example=True, description="Permission to view a prediction")
-
-    can_create_feedback: bool = Field(default=False, example=True, description="Permission to create feedback")
-    can_edit_feedback: bool = Field(default=False, example=True, description="Permission to edit feedback")
-    can_delete_feedback: bool = Field(default=False, example=True, description="Permission to delete feedback")
-    can_view_feedback: bool = Field(default=False, example=True, description="Permission to view feedback")
-
-    can_create_report: bool = Field(default=False, example=True, description="Permission to create a report")
-    can_edit_report: bool = Field(default=False, example=True, description="Permission to edit a report")
-    can_delete_report: bool = Field(default=False, example=True, description="Permission to delete a report")
-    can_view_report: bool = Field(default=False, example=True, description="Permission to view a report")
-
-
-class UserRequest(BaseModel):
-    username : str
-    first_name : str
-    last_name : str
-    password : str
-    role : int
 
 
 @router.get("/get_roles", status_code=status.HTTP_200_OK)
@@ -105,22 +56,22 @@ async def create_role(user: UserDep, role_request: UserRoleRequest, session: Ses
     return role
 
 
-#@router.post("/create_role_first_admin", status_code=status.HTTP_201_CREATED)
-#async def create_role(role_request: UserRoleRequest, session: SessionDep):
+@router.post("/create_role_without_auth", status_code=status.HTTP_201_CREATED)
+async def create_role(role_request: UserRoleRequest, session: SessionDep):
     """
     Endpoint to create a new user role.
     """
 
-    #existing_role = session.query(UserRole).filter(UserRole.role_name == role_request.role_name).first()
-    #if existing_role:
-        #raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Role already exists")
+    existing_role = session.query(UserRole).filter(UserRole.role_name == role_request.role_name).first()
+    if existing_role:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Role already exists")
     
-    #role = UserRole(**role_request.model_dump())
+    role = UserRole(**role_request.model_dump())
 
-    #session.add(role)
-    #session.commit()
-    #session.refresh(role)
-    #return role
+    session.add(role)
+    session.commit()
+    session.refresh(role)
+    return role
 
 
 @router.put("/update_role/{role_id}", status_code=status.HTTP_200_OK)
@@ -146,6 +97,20 @@ async def delete_role(user: UserDep, role_id: int, session: SessionDep):
     Endpoint to delete an existing user role.
     """
     require_permission(user, "can_delete_role")
+    existing_role = session.query(UserRole).filter(UserRole.role_id == role_id).first()
+    if not existing_role:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Role not found")
+    
+    session.delete(existing_role)
+    session.commit()
+    return {"detail": "Role deleted successfully"}
+
+
+@router.delete("/delete_role_without_auth/{role_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_role(role_id: int, session: SessionDep):
+    """
+    Endpoint to delete an existing user role.
+    """
     existing_role = session.query(UserRole).filter(UserRole.role_id == role_id).first()
     if not existing_role:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Role not found")
@@ -186,7 +151,7 @@ async def create_user(user: UserDep, db : SessionDep, create_user_request: UserR
     db.commit()
 
 
-@router.post("/create_user_first_admin", status_code=status.HTTP_201_CREATED)
+@router.post("/create_user_without_auth", status_code=status.HTTP_201_CREATED)
 async def create_user(db : SessionDep, user_request: UserRequest):
     """
     Endpoint to create the first admin user.
@@ -226,6 +191,20 @@ async def delete_user(user: UserDep, db: SessionDep, user_id: int = Path(..., de
     Endpoint to delete an existing user.
     """
     require_permission(user, "can_delete_user")
+    
+    existing_user = db.query(User).filter(User.user_id == user_id).first()
+    if not existing_user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+    
+    db.delete(existing_user)
+    db.commit()
+
+
+@router.delete("/delete_user_without_auth/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_user(db: SessionDep, user_id: int = Path(..., description="ID of the user to delete", ge=1)):
+    """
+    Endpoint to delete an existing user.
+    """
     
     existing_user = db.query(User).filter(User.user_id == user_id).first()
     if not existing_user:
