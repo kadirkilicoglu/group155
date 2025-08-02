@@ -56,11 +56,63 @@ class Token(BaseModel):
     token_type: str
 
 
-def create_acces_token(username: str, user_id: int, role: int, expires_delta: timedelta):
+class UserRoleRequest(BaseModel):
+
+    role_name: str = Field(..., example="Admin", description="Name of the user role", min_length=1, max_length=50)
+    role_description: str = Field(..., example="Administrator with full access", description="Description of the user role", min_length=1, max_length=255, nullable=True)
+
+    can_create_user: bool = Field(default=False, example=True, description="Permission to create a user")
+    can_edit_user: bool = Field(default=False, example=True, description="Permission to edit a user")
+    can_delete_user: bool = Field(default=False, example=True, description="Permission to delete a user")
+    can_view_user: bool = Field(default=False, example=True, description="Permission to view a user")
+
+    can_create_role: bool = Field(default=False, example=True, description="Permission to create a user role")
+    can_edit_role: bool = Field(default=False, example=True, description="Permission to edit a user role")
+    can_delete_role: bool = Field(default=False, example=True, description="Permission to delete a user role")
+    can_view_role: bool = Field(default=False, example=True, description="Permission to view a user role")
+
+    can_create_patient: bool = Field(default=False, example=True, description="Permission to create a patient")
+    can_edit_patient: bool = Field(default=False, example=True, description="Permission to edit a patient")
+    can_delete_patient: bool = Field(default=False, example=True, description="Permission to delete a patient")
+    can_view_patient: bool = Field(default=False, example=True, description="Permission to view a patient")
+
+    can_create_entry: bool = Field(default=False, example=True, description="Permission to create an entry")
+    can_edit_entry: bool = Field(default=False, example=True, description="Permission to edit an entry")
+    can_delete_entry: bool = Field(default=False, example=True, description="Permission to delete an entry")
+    can_view_entry: bool = Field(default=False, example=True, description="Permission to view an entry")
+
+    can_create_prediction: bool = Field(default=False, example=True, description="Permission to create a prediction")
+    can_edit_prediction: bool = Field(default=False, example=True, description="Permission to edit a prediction")
+    can_delete_prediction: bool = Field(default=False, example=True, description="Permission to delete a prediction")
+    can_view_prediction: bool = Field(default=False, example=True, description="Permission to view a prediction")
+
+    can_create_feedback: bool = Field(default=False, example=True, description="Permission to create feedback")
+    can_edit_feedback: bool = Field(default=False, example=True, description="Permission to edit feedback")
+    can_delete_feedback: bool = Field(default=False, example=True, description="Permission to delete feedback")
+    can_view_feedback: bool = Field(default=False, example=True, description="Permission to view feedback")
+
+    can_create_report: bool = Field(default=False, example=True, description="Permission to create a report")
+    can_edit_report: bool = Field(default=False, example=True, description="Permission to edit a report")
+    can_delete_report: bool = Field(default=False, example=True, description="Permission to delete a report")
+    can_view_report: bool = Field(default=False, example=True, description="Permission to view a report")
+
+
+def require_permission(user: dict, permission: str):
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
+    permissions = user.get("user_role", {})
+    if not permissions.get(permission, False):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=f"Permission '{permission}' is required to access this resource"
+        )
+
+
+def create_acces_token(username: str, user_id: int, user_role: UserRoleRequest, expires_delta: timedelta):
     """
     Create a JWT access token.
     """
-    payload = {"sub": username, "id": user_id, "role": role}
+    payload = {"sub": username, "id": user_id, "user_role": user_role.model_dump()}
     expires = datetime.now(timezone.utc) + expires_delta
     payload.update({"exp": expires})
     return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
@@ -70,7 +122,8 @@ def authenticate_user(username: str, password: str, db: SessionDep):
     """
     Authenticate a user by checking the username and password.
     """
-    user = db.query(User).filter(User.user_email == username).first()
+    #user = db.query(User).filter(User.user_email == username).first()
+    user = db.query(User).join(User.role).filter(User.user_email == username).first()
     if not user:
         return False
     if not bcrypt_context.verify(password, user.user_hashed_password):
@@ -86,14 +139,15 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
         user_id: int = payload.get("id")
-        user_role: int = payload.get("role")
+        user_role_dict: dict = payload.get("user_role")
+        user_role: UserRoleRequest = UserRoleRequest(**user_role_dict)
         if username is None or user_id is None or user_role is None:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Invalid authentication credentials",
                 headers={"WWW-Authenticate": "Bearer"},
             )
-        return {"username": username, "user_id": user_id, "role_id": user_role}
+        return {"username": username, "user_id": user_id, "user_role": user_role.model_dump()}
     except JWTError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -116,7 +170,7 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
     token = create_acces_token(
         username=user.user_email,
         user_id=user.user_id,
-        role=user.user_role_id,
+        user_role=UserRoleRequest(**user.role.__dict__),
         expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     )
 
