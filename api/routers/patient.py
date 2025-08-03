@@ -3,10 +3,10 @@ from fastapi.responses import RedirectResponse, JSONResponse
 from sqlalchemy.orm import Session
 from typing import Annotated
 
-from api.models import Patient
-from api.request_models import PatientRequest
-from api.database import SessionLocal
-from api.routers.authentication import get_current_user, require_permission
+from models import Patient
+from request_models import PatientRequest
+from database import SessionLocal
+from routers.authentication import get_current_user, require_permission
 
 router = APIRouter(
     prefix="/patients",

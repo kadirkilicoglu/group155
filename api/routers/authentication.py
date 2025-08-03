@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Request, Form
 from starlette import status
-from api.request_models import Token, UserRoleRequest
+from request_models import Token, UserRoleRequest
 from sqlalchemy.orm import Session
-from api.models import UserRole, User
-from api.database import SessionLocal
+from models import UserRole, User
+from database import SessionLocal
 from typing import Annotated
 
 from fastapi.responses import RedirectResponse
