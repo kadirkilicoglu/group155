@@ -37,4 +37,40 @@ def check_df(dataframe):
     print(dataframe.nunique())
     print("##################### Quantiles #####################")
     # Uncomment below to include quantile information
-    print(dataframe.quantile([0, 0.05, 0.50, 0.95, 0.99, 1]).T)
+    print(dataframe[[col for col in dataframe.columns if dataframe[col].dtypes != "O"]].quantile([0, 0.05, 0.50, 0.75, 0.95, 0.99, 1]).T)
+    #print(dataframe.quantile([0, 0.05, 0.50, 0.95, 0.99, 1]).T)
+
+
+def plot_importance(model, features, num=50, save=False):
+    """
+    Bu fonksiyon, bir modelin özelliklerinin önem derecelerini görselleştirir.
+    
+    Parametreler:
+    model : Trained model
+        Özelliklerin önem derecelerini çıkarmak için kullanılan eğitimli model.
+    features : pandas.DataFrame
+        Modelin eğitiminde kullanılan özelliklerin veri çerçevesi.
+    num : int, optional, default=len(X) => ***num=10 olarak degistirildi***
+        Görselleştirilecek en yüksek `num` özelliği sayısı. 
+    save : bool, optional, default=False
+        Eğer True ise, görselleştirilen grafiği kaydeder.
+    
+    Görselleştirme:
+    - Özelliklerin önem derecelerine göre sıralanmış bir bar plot.
+    """
+    # Modelin özellik önem derecelerini al
+    feature_imp = pd.DataFrame({'Value': model.feature_importances_, 'Feature': features.columns})
+    
+    # Görselleştirme
+    plt.figure(figsize=(25, 25))
+    sns.set(font_scale=1)
+    sns.barplot(x="Value", y="Feature", data=feature_imp.sort_values(by="Value", ascending=False)[0:num])
+    plt.title('Features')
+    plt.tight_layout()
+    plt.show()
+    
+    # Eğer save=True ise, görselleştirmeyi kaydet
+    if save:
+        plt.savefig('importances.png')
+    
+    return feature_imp
