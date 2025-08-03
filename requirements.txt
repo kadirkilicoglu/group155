@@ -25,4 +25,7 @@ numpy
 seaborn
 matplotlib
 scikit-learn
-tensorflow
+#pip uninstall tensorflow
+#tensorflow "needed for data modeling"
+joblib
+keras.models
