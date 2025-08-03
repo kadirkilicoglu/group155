@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, status, Form, Request
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
-from api.models import Base, ModelPrediction, Entry
-from api.request_models import TriagePredictionRequest, ModelPredictionRequest
-from api.database import engine, SessionLocal
+from models import Base, ModelPrediction, Entry
+from request_models import TriagePredictionRequest, ModelPredictionRequest
+from database import engine, SessionLocal
 from typing import Annotated
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
-from api.routers.authentication import get_current_user, require_permission
+from routers.authentication import get_current_user, require_permission
 import pandas as pd
 import numpy as np
 import joblib

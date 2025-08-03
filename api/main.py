@@ -2,12 +2,13 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from api.models import Base
-from api.database import engine
-from api.routers.prediction import router as prediction_router
-from api.routers.admin import router as admin_router
-from api.routers.authentication import router as authentication_router
-from api.routers.patient import router as patient_router
+from models import Base
+from database import engine
+from routers.prediction import router as prediction_router
+from routers.admin import router as admin_router
+from routers.authentication import router as authentication_router
+from routers.patient import router as patient_router
+from routers.entry import router as entry_router
 from contextlib import asynccontextmanager
 from pathlib import Path
 from keras.models import load_model
@@ -64,3 +65,4 @@ app.include_router(prediction_router)
 app.include_router(admin_router)
 app.include_router(authentication_router)
 app.include_router(patient_router)
+app.include_router(entry_router)
