@@ -2,10 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const addForm = document.querySelector(".form-add");
   const deleteForm = document.querySelector(".form-delete");
 
-  // Sadece nurse ve doctor rolleri için ID eşlemeleri
   const roleMap = {
-    personel: 2,  // hemşire rolünün ID'si
-    doktor: 3     // doktor rolünün ID'si
+    personel: 2,  
+    doktor: 3    
   };
 
 

@@ -30,25 +30,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await response.json();
       const token = data.access_token;
 
-      // Token'ı localStorage'a kaydet
+      // ✅ Doğru şekilde token'ı localStorage'a kaydet
       localStorage.setItem("access_token", token);
+      localStorage.setItem("token", token); // Diğer sayfalar da bunu kullanıyor
 
-      // JWT token içeriğini çöz (base64 decode)
+      // ✅ JWT token içeriğini çöz
       const payload = JSON.parse(atob(token.split(".")[1]));
-
       console.log("Decoded JWT Payload:", payload);
 
-      const roleId = payload.user_role.role_id;
-
+      const roleId = payload.role_id || payload.user_role?.role_id;
       console.log("User Role ID:", roleId);
 
       // Rol bazlı yönlendirme
       if (roleId === 1) {
-        window.location.href = "/authentication/admin-page"; // Admin sayfası
+        window.location.href = "/authentication/admin-page";
       } else if (roleId === 3) {
-        window.location.href = "/patient-list-page"; // Doktor sayfası
+        window.location.href = "/patient-list-page";
       } else if (roleId === 2) {
-        window.location.href = "/patient-page"; // Personel sayfası (örneğin hemşireler)
+        window.location.href = "/patient-page";
       } else {
         alert("Yetkisiz rol türü.");
       }

@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Ana sayfa yönlendirme
   document.querySelector(".green").addEventListener("click", () => {
     window.location.href = "/main-page";
   });
 
-  // Doğum yılı listesini dinamik oluştur (örn. 2025 → 1940)
   const birthYearSelect = document.querySelector("select");
   const currentYear = new Date().getFullYear();
   for (let year = currentYear; year >= 1940; year--) {

@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, status, Form, Request
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
-from models import Base, ModelPrediction, Entry
-from request_models import TriagePredictionRequest, ModelPredictionRequest
-from database import engine, SessionLocal
+from api.models import Base, ModelPrediction, Entry
+from api.request_models import TriagePredictionRequest, ModelPredictionRequest
+from api.database import engine, SessionLocal
 from typing import Annotated
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
-from routers.authentication import get_current_user, require_permission
+from api.routers.authentication import get_current_user, require_permission
 import pandas as pd
 import numpy as np
 import joblib
@@ -69,7 +69,6 @@ async def get_emergency_color_prediction(prediction_request: TriagePredictionReq
     Endpoint to get the emergency color prediction.
     """
 
-    # Model ve scaler'a app state üzerinden eriş
     scaler = request.app.state.scaler
     model = request.app.state.triage_model
 
@@ -86,7 +85,6 @@ async def get_emergency_color_prediction(prediction_request: TriagePredictionReq
     """
     require_permission(user, "can_create_prediction")
 
-    # Model ve scaler'a app state üzerinden eriş
     scaler = request.app.state.scaler
     model = request.app.state.triage_model
 

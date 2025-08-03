@@ -25,65 +25,33 @@
   <main class="container">
     <section class="left-panel">
       <div class="grid">
-        <!-- Sol bilgiler -->
-        <div>
-          <label>Hasta Adı:</label>
-          <input type="text" id="hastaAdi" readonly>
-        </div>
-        <div>
-          <label>Hasta Soyadı:</label>
-          <input type="text" id="hastaSoyadi" readonly>
-        </div>
-        <div>
-          <label>Cinsiyeti:</label>
-          <input type="text" id="cinsiyet" readonly>
-        </div>
-        <div>
-          <label>Yaşı:</label>
-          <input type="text" id="yas" readonly>
-        </div>
-        <div>
-          <label>Travma Durumu:</label>
-          <input type="text" id="travmaDurumu" readonly>
-        </div>
-        <div>
-          <label>SBP:</label>
-          <input type="text" id="sbp" readonly>
-        </div>
-        <div>
-          <label>Hastaneye Geliş Şekli:</label>
-          <input type="text" id="gelisSekli" readonly>
-        </div>
-        <div>
-          <label>HR:</label>
-          <input type="text" id="hr" readonly>
-        </div>
-        <div>
-          <label>Ana Şikayet:</label>
-          <input type="text" id="anaSikayet" readonly>
-        </div>
-        <div>
-          <label>RR:</label>
-          <input type="text" id="rr" readonly>
-        </div>
-        <div>
-          <label>Bilinç:</label>
-          <input type="text" id="bilinc" readonly>
-        </div>
-        <div>
-          <label>BT:</label>
-          <input type="text" id="bt" readonly>
-        </div>
-        <div class="full-width">
-          <label>Ağrı Düzeyi:</label>
-          <input type="text" id="agriDuzeyi" readonly>
-        </div>
+
+        <div><label>Hasta Adı:</label><input type="text" id="hastaAdi" readonly></div>
+        <div><label>Hasta Soyadı:</label><input type="text" id="hastaSoyadi" readonly></div>
+        <div><label>Cinsiyeti:</label><input type="text" id="cinsiyet" readonly></div>
+        <div><label>Yaşı:</label><input type="text" id="yas" readonly></div>
+
+        <div><label>KTAS Seviyesi:</label><input type="text" id="ktasRn" readonly></div>
+        <div><label>Mistriage:</label><input type="text" id="mistriage" readonly></div>
+        <div><label>Hata Grubu:</label><input type="text" id="errorGroup" readonly></div>
+        <div><label>Ağrı Skoru (NRS):</label><input type="text" id="nrsPain" readonly></div>
+        <div><label>Kalış Süresi (dk):</label><input type="text" id="stayMin" readonly></div>
+        <div><label>Durumu (Disposition):</label><input type="text" id="disposition" readonly></div>
+        <div><label>KTAS Süresi (dk):</label><input type="text" id="ktasDuration" readonly></div>
+        <div><label>Mental Durum:</label><input type="text" id="mental" readonly></div>
+        <div><label>Travma:</label><input type="text" id="injury" readonly></div>
+
+        <div><label>SBP:</label><input type="text" id="sbp" readonly></div>
+        <div><label>HR:</label><input type="text" id="hr" readonly></div>
+        <div><label>BT:</label><input type="text" id="bt" readonly></div>
+        <div class="full-width"><label>Ağrı Düzeyi:</label><input type="text" id="agriDuzeyi" readonly></div>
+
       </div>
     </section>
 
     <section class="right-panel">
       <div class="ai-box">
-        <label for="aiDegerlendirme">AI Değerlendirmesi ve Yönlendirmesi:</label>
+        <label for="aiDegerlendirme">AI Değerlendirmesi:</label>
         <div id="aiDegerlendirme"></div>
       </div>
       <div class="decision">
@@ -98,51 +66,6 @@
     </section>
   </main>
 
-  <!-- <script>
-    // Simüle edilmiş veri (veritabanından çekilen veri gibi)
-    const data = {
-      hastaAdi: "Ahmet",
-      hastaSoyadi: "Yılmaz",
-      cinsiyet: "Erkek",
-      yas: 32,
-      travmaDurumu: "Orta",
-      sbp: 120,
-      gelisSekli: "Ambulans",
-      hr: 80,
-      anaSikayet: "Baş ağrısı",
-      rr: 16,
-      bilinc: "Açık",
-      bt: 37.5,
-      agriDuzeyi: "6",
-      aiDegerlendirme: "AI tarafından yapılan değerlendirme, hastanın durumu orta şiddette. Tavsiye edilen işlem: Acil servis.",
-      yonlendirme: "Uygun"
-    };
-
-    // Veriyi HTML elementlerine yerleştiriyoruz
-    document.getElementById('hastaAdi').value = data.hastaAdi;
-    document.getElementById('hastaSoyadi').value = data.hastaSoyadi;
-    document.getElementById('cinsiyet').value = data.cinsiyet;
-    document.getElementById('yas').value = data.yas;
-    document.getElementById('travmaDurumu').value = data.travmaDurumu;
-    document.getElementById('sbp').value = data.sbp;
-    document.getElementById('gelisSekli').value = data.gelisSekli;
-    document.getElementById('hr').value = data.hr;
-    document.getElementById('anaSikayet').value = data.anaSikayet;
-    document.getElementById('rr').value = data.rr;
-    document.getElementById('bilinc').value = data.bilinc;
-    document.getElementById('bt').value = data.bt;
-    document.getElementById('agriDuzeyi').value = data.agriDuzeyi;
-
-    // AI Değerlendirmesini ekliyoruz
-    document.getElementById('aiDegerlendirme').innerText = data.aiDegerlendirme;
-
-    // Yönlendirme kısmını dinamik olarak işaretliyoruz
-    if (data.yonlendirme === "Uygun") {
-      document.getElementById('uygun').checked = true;
-    } else if (data.yonlendirme === "Uygun Değil") {
-      document.getElementById('uygun_degil').checked = true;
-    }
-  </script> -->
-
+  <script src="/static/js/doctor-page.js"></script>
 </body>
 </html>

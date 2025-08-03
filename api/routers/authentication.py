@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Request, Form
 from starlette import status
-from request_models import Token, UserRoleRequest
+from api.request_models import Token, UserRoleRequest
 from sqlalchemy.orm import Session
-from models import UserRole, User
-from database import SessionLocal
+from api.models import UserRole, User
+from api.database import SessionLocal
 from typing import Annotated
 
 from fastapi.responses import RedirectResponse
@@ -29,8 +29,6 @@ router = APIRouter(
 
 load_dotenv()
 
-# Constants for JWT token creation
-# Moved to a separate config file or environment variables in production
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
@@ -79,7 +77,6 @@ def authenticate_user(username: str, password: str, db: SessionDep):
     """
     Authenticate a user by checking the username and password.
     """
-    #user = db.query(User).filter(User.user_email == username).first()
     user = db.query(User).join(User.role).filter(User.user_email == username).first()
     if not user:
         return False
@@ -129,7 +126,7 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
         user_id=user.user_id,
         user_first_name=user.user_first_name,
         user_last_name=user.user_last_name,
-        user_role=UserRoleRequest(**user.role.__dict__).model_dump(),  # ✅ Bu düzeltme kritik
+        user_role=UserRoleRequest(**user.role.__dict__).model_dump(), 
         expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     )
 

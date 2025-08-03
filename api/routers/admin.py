@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, status
-from request_models import UserRequest, RoleRequest
+from api.request_models import UserRequest, RoleRequest
 from sqlalchemy.orm import Session
-from models import Base, UserRole, User
-from database import engine, SessionLocal
+from api.models import Base, UserRole, User
+from api.database import engine, SessionLocal
 from typing import Annotated, Callable
 
-from routers.authentication import get_current_user, bcrypt_context, require_permission
+from api.routers.authentication import get_current_user, bcrypt_context, require_permission
 
 
 
