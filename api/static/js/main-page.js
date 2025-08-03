@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (!response.ok) {
-        // More specific error handling based on status if needed, or a generic message
         if (response.status === 401) {
           throw new Error("Geçersiz e-posta veya şifre.");
         } else {
@@ -30,6 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await response.json();
       const token = data.access_token;
+
+      // Token'ı localStorage'a kaydet
+      localStorage.setItem("access_token", token);
 
       // JWT token içeriğini çöz (base64 decode)
       const payload = JSON.parse(atob(token.split(".")[1]));
@@ -41,17 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("User Role ID:", roleId);
 
       // Rol bazlı yönlendirme
-if (roleId === 1) {
-  window.location.href = "/authentication/admin-page"; // Admin sayfası
-} else if (roleId === 3) {
-  window.location.href = "/doctor-page"; // Doktor sayfası
-} else if (roleId === 2) {
-  window.location.href = "/patient-page"; // Personel sayfası (örneğin hemşireler)
-} else {
-  alert("Yetkisiz rol türü.");
-}
+      if (roleId === 1) {
+        window.location.href = "/authentication/admin-page"; // Admin sayfası
+      } else if (roleId === 3) {
+        window.location.href = "/doctor-page"; // Doktor sayfası
+      } else if (roleId === 2) {
+        window.location.href = "/patient-page"; // Personel sayfası (örneğin hemşireler)
+      } else {
+        alert("Yetkisiz rol türü.");
+      }
     } catch (error) {
-      alert(error.message); // Display the specific error message
+      alert(error.message);
     }
   });
 });

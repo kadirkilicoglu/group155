@@ -1,116 +1,107 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("token"); // sadece bu satır değiştirildi
-
-  if (!token) {
-    alert("Giriş yapmanız gerekiyor.");
-    window.location.href = "/";
-    return;
-  }
-
-  // Ana Sayfa butonu tıklama olayı
-  const homeBtn = document.querySelector(".header-buttons .btn.green");
-  if (homeBtn) {
-    homeBtn.addEventListener("click", () => {
-      window.location.href = "http://127.0.0.1:8000";
-    });
-  }
-
   const addForm = document.querySelector(".form-add");
   const deleteForm = document.querySelector(".form-delete");
 
-  // Kullanıcı ekleme
-  addForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  // Sadece nurse ve doctor rolleri için ID eşlemeleri
+  const roleMap = {
+    personel: 2,  // hemşire rolünün ID'si
+    doktor: 3     // doktor rolünün ID'si
+  };
 
-    const email = addForm.querySelector('input[type="email"]').value.trim();
-    const password = addForm.querySelector('input[type="password"]').value.trim();
-    const roleText = addForm.querySelector("select").value;
 
-    const roleMap = {
-      personel: 2,
-      doktor: 3
-    };
+  // Personel Ekleme Formu
+  addForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    const role = roleMap[roleText.toLowerCase()];
-    if (!role) {
+    const formData = new FormData(addForm);
+    const roleValue = formData.get("role");
+
+    if (!roleMap[roleValue]) {
       alert("Geçerli bir rol seçiniz.");
       return;
     }
 
-    const userData = {
-      username: email,
-      password: password,
-      first_name: "Ad",
-      last_name: "Soyad",
-      role: role
+    const payload = {
+      username: formData.get("username"),
+      password: formData.get("password"),
+      first_name: formData.get("first_name"),
+      last_name: formData.get("last_name"),
+      role: roleMap[roleValue]
     };
 
     try {
+      const token = localStorage.getItem("access_token");
+
       const response = await fetch("/admin/create_user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
+          ...(token ? { "Authorization": `Bearer ${token}` } : {})
         },
-        body: JSON.stringify(userData)
+        body: JSON.stringify(payload)
       });
 
-      if (response.ok) {
-        alert("Kullanıcı başarıyla eklendi.");
-        addForm.reset();
-      } else {
-        const err = await response.json();
-        alert("Hata: " + (err.detail || "Kullanıcı eklenemedi."));
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert("Hata: " + (errorData.detail || "Kullanıcı oluşturulamadı"));
+        return;
       }
+
+      alert("Personel başarıyla eklendi.");
+      addForm.reset();
+
     } catch (error) {
-      console.error("Ekleme hatası:", error);
-      alert("Bir hata oluştu.");
+      alert("Sunucu hatası: " + error.message);
     }
   });
 
-  // Kullanıcı silme
-  deleteForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  // Personel Silme Formu
+  deleteForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    const emailToDelete = deleteForm.querySelector('input[type="email"]').value.trim();
+    const emailInput = deleteForm.querySelector("input[type=email]");
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      alert("Lütfen mail adresini girin.");
+      return;
+    }
 
     try {
-      const res = await fetch("/admin/get_users", {
-        method: "GET",
+      const token = localStorage.getItem("access_token");
+
+      const usersRes = await fetch("/admin/get_users", {
         headers: {
-          Authorization: `Bearer ${token}`
+          ...(token ? { "Authorization": `Bearer ${token}` } : {})
         }
       });
+      if (!usersRes.ok) throw new Error("Kullanıcı listesi alınamadı");
+      const users = await usersRes.json();
 
-      if (!res.ok) {
-        alert("Kullanıcı listesi alınamadı.");
+      const userToDelete = users.find(u => u.user_email.toLowerCase() === email.toLowerCase());
+      if (!userToDelete) {
+        alert("Kullanıcı bulunamadı.");
         return;
       }
 
-      const users = await res.json();
-      const user = users.find(u => u.user_email === emailToDelete);
-
-      if (!user) {
-        alert("Bu e-posta ile eşleşen kullanıcı bulunamadı.");
-        return;
-      }
-
-      const deleteRes = await fetch(`/admin/delete_user/${user.user_id}`, {
+      const deleteRes = await fetch(`/admin/delete_user/${userToDelete.user_id}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`
+          ...(token ? { "Authorization": `Bearer ${token}` } : {})
         }
       });
 
-      if (deleteRes.ok) {
-        alert("Kullanıcı başarıyla silindi.");
-        deleteForm.reset();
-      } else {
-        alert("Silme işlemi başarısız.");
+      if (!deleteRes.ok) {
+        const errorData = await deleteRes.json();
+        alert("Silme işlemi başarısız: " + (errorData.detail || ""));
+        return;
       }
+
+      alert("Personel başarıyla silindi.");
+      emailInput.value = "";
+
     } catch (error) {
-      console.error("Silme hatası:", error);
-      alert("Bir hata oluştu.");
+      alert("Sunucu hatası: " + error.message);
     }
   });
 });

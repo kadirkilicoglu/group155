@@ -25,9 +25,11 @@
     <section class="form-section">
       <h2>Personel Ekle</h2>
       <form class="form-add">
-        <input type="email" placeholder="Mail Adresi Giriniz" required>
-        <input type="password" placeholder="Şifre Giriniz" required>
-        <select required>
+        <input type="email" name="username" placeholder="Mail Adresi Giriniz" required>
+        <input type="password" name="password" placeholder="Şifre Giriniz" required>
+        <input type="text" name="first_name" placeholder="Adınızı Giriniz" required>
+        <input type="text" name="last_name" placeholder="Soyadınızı Giriniz" required>
+        <select name="role" required>
           <option disabled selected>Personel/Doktor</option>
           <option value="personel">Personel</option>
           <option value="doktor">Doktor</option>
@@ -35,6 +37,7 @@
         <button type="submit" class="btn green">Kaydet</button>
       </form>
     </section>
+
 
     <hr>
 
@@ -46,5 +49,7 @@
       </form>
     </section>
   </main>
+  
+  <script src="/static/js/admin-page.js"></script>
 </body>
 </html>
