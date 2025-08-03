@@ -10,7 +10,6 @@ from fastapi.templating import Jinja2Templates
 from api.routers.authentication import get_current_user, require_permission
 import pandas as pd
 import numpy as np
-import joblib
 
 
 router = APIRouter(
