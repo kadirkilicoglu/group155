@@ -1,4 +1,4 @@
-from api.database import Base
+from database import Base
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean
 from sqlalchemy.orm import relationship
 
@@ -76,6 +76,23 @@ class Patient(Base):
     entries = relationship("Entry", back_populates="patient")
 
 
+{
+    "ktas_rn": 3,
+    "mistriage": 0,
+    "error_group": 0,
+    "nrs_pain": 5,
+    "length_of_stay_min": 120,
+    "age": 65,
+    "disposition": 2,
+    "hr": 82,
+    "sbp": 145,
+    "bt": 36.5,
+    "ktas_duration_min": 4.5,
+    "mental": 1,
+    "injury": 2
+}
+
+
 class Entry(Base):
     __tablename__ = "entries"
 
@@ -84,17 +101,19 @@ class Entry(Base):
     entry_assigned_doctor_id = Column(Integer, ForeignKey("users.user_id"))
     entry_date = Column(String)
 
-    entry_arrival_mode = Column(String)
-    entry_injury = Column(String)
-    entry_chief_complaint = Column(String)
-    entry_patient_mental = Column(String)
-    entry_patient_pain = Column(String)
-    entry_nrs_pain = Column(String)
-    entry_sbp = Column(String)
-    entry_dbp = Column(String)
-    entry_hr = Column(String)
-    entry_rr = Column(String)
-    entry_bt = Column(String)
+    ktas_rn = Column(float)
+    mistriage = Column(float)
+    error_group = Column(float)
+    nrs_pain = Column(float)
+    length_of_stay_min = Column(float)
+    age = Column(float)
+    disposition = Column(float)
+    hr = Column(float)
+    sbp = Column(float)
+    bt = Column(float)
+    ktas_duration_min = Column(float)
+    mental = Column(float)
+    injury = Column(float)
 
     model_predictions = relationship("ModelPrediction", back_populates="entry")
     generated_reports = relationship("GeneratedReport", back_populates="entry")
