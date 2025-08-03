@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (roleId === 1) {
         window.location.href = "/authentication/admin-page"; // Admin sayfası
       } else if (roleId === 3) {
-        window.location.href = "/doctor-page"; // Doktor sayfası
+        window.location.href = "/patient-list-page"; // Doktor sayfası
       } else if (roleId === 2) {
         window.location.href = "/patient-page"; // Personel sayfası (örneğin hemşireler)
       } else {
