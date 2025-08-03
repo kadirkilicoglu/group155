@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Ana sayfa yönlendirme
+  document.querySelector(".green").addEventListener("click", () => {
+    window.location.href = "/main-page";
+  });
   const addForm = document.querySelector(".form-add");
   const deleteForm = document.querySelector(".form-delete");
 

@@ -62,14 +62,17 @@ def require_permission(user: dict, permission: str):
         )
 
 
-def create_acces_token(username: str, user_id: int, user_role: UserRoleRequest, expires_delta: timedelta):
-    """
-    Create a JWT access token.
-    """
-    payload = {"sub": username, "id": user_id, "user_role": user_role.model_dump()}
-    expires = datetime.now(timezone.utc) + expires_delta
-    payload.update({"exp": expires})
-    return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+def create_acces_token(username: str, user_id: int, user_first_name: str, user_last_name: str, user_role: dict, expires_delta: timedelta):
+    to_encode = {
+        "sub": username,
+        "user_id": user_id,
+        "user_first_name": user_first_name,
+        "user_last_name": user_last_name,
+        "user_role": user_role,
+        "exp": datetime.utcnow() + expires_delta
+    }
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return encoded_jwt
 
 
 def authenticate_user(username: str, password: str, db: SessionDep):
@@ -124,11 +127,14 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
     token = create_acces_token(
         username=user.user_email,
         user_id=user.user_id,
-        user_role=UserRoleRequest(**user.role.__dict__),
+        user_first_name=user.user_first_name,
+        user_last_name=user.user_last_name,
+        user_role=UserRoleRequest(**user.role.__dict__).model_dump(),  # ✅ Bu düzeltme kritik
         expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     )
 
     return {"access_token": token, "token_type": "bearer"}
+
 
 @router.post("/login")
 async def login(request: Request, email: str = Form(...), password: str = Form(...), db: Session = Depends(get_session)):

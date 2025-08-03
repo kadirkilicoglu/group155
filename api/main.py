@@ -44,6 +44,10 @@ def main_page(request: Request):
 def main_page(request: Request):
     return templates.TemplateResponse("doctor-page.html", {"request": request})
 
+@app.get("/patient-list-page", response_class=HTMLResponse)
+def main_page(request: Request):
+    return templates.TemplateResponse("patient-list-page.html", {"request": request})
+
 app.include_router(prediction_router)
 app.include_router(admin_router)
 app.include_router(authentication_router)

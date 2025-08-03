@@ -1,3 +1,4 @@
+// main-page.js
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".login-form");
 
@@ -46,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (roleId === 1) {
         window.location.href = "/authentication/admin-page"; // Admin sayfası
       } else if (roleId === 3) {
-        window.location.href = "/doctor-page"; // Doktor sayfası
+        // CHANGED: Redirect doctors (roleId 3) to patient-list-page.html
+        window.location.href = "/patient-list-page"; // Doktor sayfası (Patient Listesi)
       } else if (roleId === 2) {
         window.location.href = "/patient-page"; // Personel sayfası (örneğin hemşireler)
       } else {
