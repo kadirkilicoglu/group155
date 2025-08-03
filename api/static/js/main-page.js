@@ -41,15 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("User Role ID:", roleId);
 
       // Rol bazlı yönlendirme
-      if (roleId === 1) {
-        window.location.href = "/authentication/admin-page"; // Admin sayfası
-      } else if (roleId === 2) {
-        window.location.href = "/doctor-page"; // Doktor sayfası
-      } else if (roleId === 3) {
-        window.location.href = "/nurse-page"; // Hemşire sayfası
-      } else {
-        alert("Yetkisiz rol türü.");
-      }
+if (roleId === 1) {
+  window.location.href = "/authentication/admin-page"; // Admin sayfası
+} else if (roleId === 3) {
+  window.location.href = "/doctor-page"; // Doktor sayfası
+} else if (roleId === 2) {
+  window.location.href = "/patient-page"; // Personel sayfası (örneğin hemşireler)
+} else {
+  alert("Yetkisiz rol türü.");
+}
     } catch (error) {
       alert(error.message); // Display the specific error message
     }

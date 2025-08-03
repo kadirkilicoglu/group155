@@ -2,11 +2,12 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from models import Base
-from database import engine
-from routers.prediction import router as prediction_router
-from routers.admin import router as admin_router
-from routers.authentication import router as authentication_router
+from api.models import Base
+from api.database import engine
+from api.routers.prediction import router as prediction_router
+from api.routers.admin import router as admin_router
+from api.routers.authentication import router as authentication_router
+from api.routers.patient import router as patient_router
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -26,6 +27,24 @@ templates = Jinja2Templates(directory=BASE_DIR / "templates")
 async def main_page(request: Request):
     return templates.TemplateResponse("main-page.html", {"request": request})
 
+@app.get("/patient-page", response_class=HTMLResponse)
+def get_patient_page(request: Request):
+    return templates.TemplateResponse("patient-page.html", {"request": request})
+
+@app.get("/patient-info-page", response_class=HTMLResponse)
+def get_patient_info_page(request: Request):
+    return templates.TemplateResponse("patient-info-page.html", {"request": request})
+
+
+@app.get("/main-page", response_class=HTMLResponse)
+def main_page(request: Request):
+    return templates.TemplateResponse("main-page.html", {"request": request})
+
+@app.get("/doctor-page", response_class=HTMLResponse)
+def main_page(request: Request):
+    return templates.TemplateResponse("doctor-page.html", {"request": request})
+
 app.include_router(prediction_router)
 app.include_router(admin_router)
 app.include_router(authentication_router)
+app.include_router(patient_router)
