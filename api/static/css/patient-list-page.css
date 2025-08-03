@@ -1,0 +1,122 @@
+body {
+ font-family: Arial, sans-serif;
+ background: linear-gradient(to bottom right, #fceabb, #f8b500);
+ margin: 0;
+ padding: 0;
+}
+
+
+.header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background-color: #fff6e0;
+ padding: 20px;
+ border-bottom: 1px solid #999;
+}
+
+
+.logo-container {
+ display: flex;
+ align-items: center;
+}
+
+
+.logo {
+ height: 50px;
+ margin-right: 10px;
+}
+
+
+.title {
+ line-height: 1.2;
+}
+
+
+.nav-buttons .btn {
+ padding: 10px 20px;
+ border: none;
+ border-radius: 6px;
+ font-weight: bold;
+ color: white;
+ cursor: pointer;
+ margin-left: 10px;
+}
+
+
+.btn.green {
+ background-color: #4caf50;
+}
+
+
+.btn.red {
+ background-color: #f44336;
+}
+
+
+.content {
+ padding: 30px;
+ background-color: rgba(255,255,255,0.9);
+ margin: 20px;
+ border-radius: 10px;
+}
+
+
+/* Doktor bilgileri için */
+.doctor-info {
+ margin-bottom: 25px;
+ display: flex;
+ align-items: center;
+ gap: 15px;
+ flex-wrap: wrap;
+}
+
+
+.doctor-info label {
+ font-size: 18px;
+ font-weight: bold;
+}
+
+
+.doctor-info input {
+ padding: 8px 15px;
+ border-radius: 20px;
+ border: 2px solid #4caf50;
+ background-color: #f9f9f9;
+ font-weight: bold;
+ font-size: 16px;
+ width: 180px;
+ cursor: default;
+ user-select: none;
+}
+
+
+.patient-table {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 20px;
+}
+
+
+.patient-table th, .patient-table td {
+ padding: 12px;
+ border: 2px solid #333;
+ text-align: left;
+}
+
+
+.patient-table td:last-child {
+ text-align: center;
+}
+
+
+.patient-table button {
+ padding: 6px 12px;
+ background-color: #4caf50;
+ color: white;
+ border: none;
+ border-radius: 6px;
+ cursor: pointer;
+}
+
+
