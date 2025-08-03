@@ -102,3 +102,21 @@ class PatientRequest(BaseModel):
     gender: str = Field(..., regex=r"^(Male|Female|Other)$", description="Gender of the patient")
     birth_date: str = Field(..., regex=r"^\d{4}$")
     email: str = Field(..., regex=r"^[\w\.-]+@[\w\.-]+\.\w+$", description="Email of the patient")
+
+
+class EntryRequest(BaseModel):
+
+    patient_id: int = Field(..., description="ID of the patient associated with the entry")
+    assigned_doctor_id: int = Field(..., description="ID of the doctor assigned to the entry")
+    entry_date: str = Field(..., description="Date of the entry")
+    entry_arrival_mode: str = Field(..., description="Arrival mode of the patient")
+    entry_injury: str = Field(..., description="Injury details of the patient")
+    entry_chief_complaint: str = Field(..., description="Chief complaint of the patient")
+    entry_patient_mental: str = Field(..., description="Mental status of the patient")
+    entry_patient_pain: str = Field(..., description="Pain status of the patient")
+    entry_nrs_pain: str = Field(..., description="NRS pain score of the patient")
+    entry_sbp: str = Field(..., description="Systolic blood pressure of the patient")
+    entry_dbp: str = Field(..., description="Diastolic blood pressure of the patient")
+    entry_hr: str = Field(..., description="Heart rate of the patient")
+    entry_rr: str = Field(..., description="Respiratory rate of the patient")
+    entry_bt: str = Field(..., description="Body temperature of the patient")

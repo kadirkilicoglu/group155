@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, status, Form
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
-from models import Base, UserRole, User, Patient
+from models import Base, Patient
 from request_models import PatientRequest
 from database import engine, SessionLocal
 from typing import Annotated, Callable
@@ -61,6 +61,25 @@ async def get_patient(patient_id: int, user: UserDep, session: SessionDep):
     if not patient:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Patient not found")
     
+    return patient
+
+
+@router.post("/create_patient", status_code=status.HTTP_201_CREATED)
+async def create_patient(user: UserDep, patient_request: PatientRequest, session: SessionDep):
+    """
+    Endpoint to create a new patient.
+    """
+    require_permission(user, "can_create_patient")
+
+    existing_patient = session.query(Patient).filter(Patient.patient_email == patient_request.email).first()
+    if existing_patient:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Patient with this email already exists")
+    
+    patient = Patient(**patient_request.model_dump())
+
+    session.add(patient)
+    session.commit()
+    session.refresh(patient)
     return patient
 
 
