@@ -94,3 +94,11 @@ class UserRequest(BaseModel):
     last_name : str
     password : str
     role : int
+
+
+class PatientRequest(BaseModel):
+    first_name: str = Field(..., min_length=1, max_length=50)
+    last_name: str = Field(..., min_length=1, max_length=50)
+    gender: str = Field(..., regex=r"^(Male|Female|Other)$", description="Gender of the patient")
+    birth_date: str = Field(..., regex=r"^\d{4}$")
+    email: str = Field(..., regex=r"^[\w\.-]+@[\w\.-]+\.\w+$", description="Email of the patient")
