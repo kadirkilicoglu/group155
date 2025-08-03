@@ -2,19 +2,24 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from api.models import Base
-from api.database import engine
-from api.routers.prediction import router as prediction_router
-from api.routers.admin import router as admin_router
-from api.routers.authentication import router as authentication_router
-from api.routers.patient import router as patient_router
+from models import Base
+from database import engine
+from routers.prediction import router as prediction_router
+from routers.admin import router as admin_router
+from routers.authentication import router as authentication_router
+from routers.patient import router as patient_router
 from contextlib import asynccontextmanager
 from pathlib import Path
+from tensorflow.keras.models import load_model
+import joblib
 
 BASE_DIR = Path(__file__).resolve().parent
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    app.state.scaler = joblib.load("../prediction_model/scaler.pkl")
+    app.state.triage_model = load_model("../prediction_model/triage_model.h5")
+
     Base.metadata.create_all(bind=engine)
     yield
 

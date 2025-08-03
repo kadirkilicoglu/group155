@@ -99,9 +99,9 @@ class UserRequest(BaseModel):
 class PatientRequest(BaseModel):
     first_name: str = Field(..., min_length=1, max_length=50)
     last_name: str = Field(..., min_length=1, max_length=50)
-    gender: str = Field(..., regex=r"^(Male|Female|Other)$", description="Gender of the patient")
-    birth_date: str = Field(..., regex=r"^\d{4}$")
-    email: str = Field(..., regex=r"^[\w\.-]+@[\w\.-]+\.\w+$", description="Email of the patient")
+    gender: str = Field(..., description="Gender of the patient")
+    birth_date: str = Field(..., description="Birth date of the patient in YYYY-MM-DD format")
+    email: str = Field(..., description="Email of the patient")
 
 
 class EntryRequest(BaseModel):
@@ -120,3 +120,24 @@ class EntryRequest(BaseModel):
     entry_hr: str = Field(..., description="Heart rate of the patient")
     entry_rr: str = Field(..., description="Respiratory rate of the patient")
     entry_bt: str = Field(..., description="Body temperature of the patient")
+
+
+class TriagePredictionRequest(BaseModel):
+    ktas_rn: int = Field(..., description="KTAS RN value")
+    mistriage: int = Field(..., description="Mistriage value")
+    error_group: int = Field(..., description="Error group value")
+    nrs_pain: int = Field(..., description="NRS pain value")
+    length_of_stay_min: int = Field(..., description="Length of stay in minutes")
+    age: int = Field(..., description="Age of the patient")
+    disposition: str = Field(..., description="Disposition of the patient")
+    hr: float = Field(..., description="Heart rate")
+    sbp: float = Field(..., description="Systolic blood pressure")
+    bt: float = Field(..., description="Body temperature")
+    ktas_duration_min: int = Field(..., description="KTAS duration in minutes")
+    mental: str = Field(..., description="Mental status")
+    injury: str = Field(..., description="Injury status")
+
+
+class ModelPredictionRequest(BaseModel):
+    entry_id: int = Field(..., description="ID of the entry for which the prediction is made")
+    label: str = Field(..., description="Predicted label for the entry")
