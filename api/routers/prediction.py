@@ -52,16 +52,34 @@ def preprocess_entry_data(entry_dict: dict, scaler) -> np.ndarray:
 
 
 def predict_triage(entry_data: np.ndarray, model) -> str:
-    prediction = model.predict(entry_data)
+    prediction_prob = model.predict(entry_data)
+    predicted_class = np.argmax(prediction_prob, axis=1)[0]
     emergency_color_dict = {
         0: "Red",
         1: "Yellow",
         2: "Green",
     }
-    return emergency_color_dict.get(prediction[0], "Unknown")
+    return emergency_color_dict.get(predicted_class, "Unknown")
 
 
-@router.get("/get_emergency_color_prediction")
+
+@router.post("/get_emergency_color_prediction_without_auth")
+async def get_emergency_color_prediction(prediction_request: TriagePredictionRequest, session: SessionDep, request: Request):
+    """
+    Endpoint to get the emergency color prediction.
+    """
+
+    # Model ve scaler'a app state üzerinden eriş
+    scaler = request.app.state.scaler
+    model = request.app.state.triage_model
+
+    entry_data = preprocess_entry_data(prediction_request.model_dump(), scaler)
+    emergency_color = predict_triage(entry_data, model)
+
+    return {"prediction": emergency_color}
+
+
+@router.post("/get_emergency_color_prediction")
 async def get_emergency_color_prediction(prediction_request: TriagePredictionRequest, user: UserDep, session: SessionDep, request: Request):
     """
     Endpoint to get the emergency color prediction.

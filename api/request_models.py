@@ -129,13 +129,13 @@ class TriagePredictionRequest(BaseModel):
     nrs_pain: int = Field(..., description="NRS pain value")
     length_of_stay_min: int = Field(..., description="Length of stay in minutes")
     age: int = Field(..., description="Age of the patient")
-    disposition: str = Field(..., description="Disposition of the patient")
+    disposition: int = Field(..., description="Disposition of the patient")
     hr: float = Field(..., description="Heart rate")
     sbp: float = Field(..., description="Systolic blood pressure")
     bt: float = Field(..., description="Body temperature")
-    ktas_duration_min: int = Field(..., description="KTAS duration in minutes")
-    mental: str = Field(..., description="Mental status")
-    injury: str = Field(..., description="Injury status")
+    ktas_duration_min: float = Field(..., description="KTAS duration in minutes")
+    mental: int = Field(..., description="Mental status")
+    injury: int = Field(..., description="Injury status")
 
 
 class ModelPredictionRequest(BaseModel):
