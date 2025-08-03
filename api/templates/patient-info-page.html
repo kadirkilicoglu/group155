@@ -28,43 +28,34 @@
       <div class="form-grid">
         <!-- Sol Sütun -->
         <div class="form-column">
-          <input type="text" placeholder="İsim" class="input">
-          <input type="text" placeholder="Cinsiyet" class="input">
-          <input type="text" placeholder="gg/AA/yyyy" class="input">
-          <select class="input">
-            <option>Travma Durumu</option>
-            <option>Yok</option>
-            <option>Var</option>
-          </select>
-          <select class="input">
-            <option>Geliş Şekli</option>
-            <option>Ambulans</option>
-            <option>Kendi İmkanlarıyla</option>
-          </select>
-          <input type="text" placeholder="Ana Şikayet" class="input">
-          <select class="input">
-            <option>Bilinç</option>
-            <option>Açık</option>
-            <option>Kapalı</option>
-          </select>
+          <!-- Sabit Alanlar -->
+          <input type="text" placeholder="İsim" class="input" name="first_name">
+          <input type="text" placeholder="Cinsiyet" class="input" name="gender">
+          <input type="text" placeholder="gg/AA/yyyy" class="input" name="birth_date">
+
+          <!-- Yeni Float Alanlar -->
+          <input type="number" step="any" placeholder="ktas_rn" class="input" name="ktas_rn">
+          <input type="number" step="any" placeholder="mistriage" class="input" name="mistriage">
+          <input type="number" step="any" placeholder="error_group" class="input" name="error_group">
+          <input type="number" step="any" placeholder="nrs_pain" class="input" name="nrs_pain">
+          <input type="number" step="any" placeholder="length_of_stay_min" class="input" name="length_of_stay_min">
+          <input type="number" step="any" placeholder="disposition" class="input" name="disposition">
         </div>
 
         <!-- Sağ Sütun -->
         <div class="form-column">
-          <input type="text" placeholder="Soyisim" class="input">
-          <input type="email" placeholder="Hasta Mail" class="input">
-          <input type="number" placeholder="Yaş" class="input">
-          <select class="input">
-            <option>Ağrı Düzeyi</option>
-            <option>0 - Yok</option>
-            <option>1 - Hafif</option>
-            <option>2 - Orta</option>
-            <option>3 - Şiddetli</option>
-          </select>
-          <input type="text" placeholder="SBP" class="input">
-          <input type="text" placeholder="HR" class="input">
-          <input type="text" placeholder="RR" class="input">
-          <input type="text" placeholder="BT" class="input">
+          <!-- Sabit Alanlar -->
+          <input type="text" placeholder="Soyisim" class="input" name="last_name">
+          <input type="email" placeholder="Hasta Mail" class="input" name="email">
+          <input type="number" placeholder="Yaş" class="input" name="age">
+
+          <!-- Yeni Float Alanlar -->
+          <input type="number" step="any" placeholder="hr" class="input" name="hr">
+          <input type="number" step="any" placeholder="sbp" class="input" name="sbp">
+          <input type="number" step="any" placeholder="bt" class="input" name="bt">
+          <input type="number" step="any" placeholder="ktas_duration_min" class="input" name="ktas_duration_min">
+          <input type="number" step="any" placeholder="mental" class="input" name="mental">
+          <input type="number" step="any" placeholder="injury" class="input" name="injury">
         </div>
       </div>
 
@@ -74,62 +65,6 @@
     </form>
   </main>
 
-  <script src="/static/js/patient-info-page.js"></script>
-</body>
-</html>
-```html
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hasta Bilgileri - TriAI</title>
-  <link rel="stylesheet" href="/static/css/patient-info-page.css">
-</head>
-<body>
-  <header class="header">
-    <div class="logo">
-      <img src="/static/logo.png" alt="TriAI Logo">
-      <div class="title">
-        <h1>TriAI</h1>
-        <p>Yapay Zeka Destekli Triaj Sistemi Asistanınız</p>
-      </div>
-    </div>
-    <div class="buttons">
-      <button class="green">Ana Sayfa</button>
-      <button class="red">Hasta Bilgi Sayfası</button>
-    </div>
-  </header>
-
-  <main class="main-content">
-    <h2 class="section-title">Hasta Bilgileri</h2>
-
-    <form class="patient-form">
-      <div class="form-grid">
-        <!-- Sol Sütun -->
-        <div class="form-column">
-          <input type="text" placeholder="İsim" class="input">
-          <input type="text" placeholder="Cinsiyet" class="input">
-          <input type="text" placeholder="gg/AA/yyyy" class="input">
-          <!-- diğer alanlar -->
-        </div>
-
-        <!-- Sağ Sütun -->
-        <div class="form-column">
-          <input type="text" placeholder="Soyisim" class="input">
-          <input type="email" placeholder="Hasta Mail" class="input">
-          <input type="number" placeholder="Yaş" class="input">
-          <!-- diğer alanlar -->
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <button type="submit" class="save-btn">Kaydet</button>
-      </div>
-    </form>
-  </main>
-
-  <!-- Hasta bilgilerini dolduran script -->
   <script src="/static/js/patient-info-page.js"></script>
 </body>
 </html>
