@@ -290,3 +290,120 @@ Yapay zekâ destekli dijital sağlık çözümlerini deneyimlemek isteyen kullan
   
 
   </details>
+
+
+
+
+
+<details>
+    <summary><h1>Sprint 3</h1></summary>
+
+<details>
+    <summary><h3>Sprint 3 - App Screenshots</h3></summary>
+  <table style="width: 100%;">
+    <tr>
+      <td colspan="4" style="text-align: center;"><h2> </h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintThree/screenshots/1.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintThree/screenshots/2.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintThree/screenshots/3.jpeg" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="bootcampFiles/sprintThree/screenshots/4.jpeg" style="max-width: 100%; height: auto;"></td>
+    </tr>
+  </table>
+</details>
+
+<details>
+    <summary><h3>Sprint 3 - Sprint Board Update Screenshots</h3></summary>
+    <img src="bootcampFiles/sprintThree/boardupdate/1.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintThree/boardupdate/2.jpeg" style="max-width: 100%; height: auto;">
+    <img src="bootcampFiles/sprintThree/boardupdate/3.jpeg" style="max-width: 100%; height: auto;">
+</details>
+
+<details>
+    <summary><h3>Sprint 3 - Proje Takip Aracı</h3></summary>
+    <img src="bootcampFiles/sprintThree/proje_takip/1.jpeg" style="max-width: 100%; height: auto;">
+</details>
+
+---
+
+### Sprint Notları
+
+- Sprint 3, projenin tamamlandığı ve teslim aşamasına gelindiği sprinttir.
+- Hasta ve giriş (entry) kayıt ekranları geliştirildi ve FastAPI ile bağlantılar kuruldu.
+- Role tabanlı erişim sistemi genişletildi, doktor ve hemşire girişleri yönlendirildi.
+- Admin paneli tamamlandı, kullanıcı yönetimi üzerinden CRUD işlemleri yapılabilir hale getirildi.
+- Projenin `ReadMe` dosyası, ekran görüntüleri ve mimari açıklamalarla birlikte son haline getirildi.
+- LLM modeli çıkarıldı, prediction endpoint basit mantıkla çalışacak şekilde düzenlendi.
+- Teslim için demo videosu çekildi ve proje deploy edildi.
+
+---
+
+### Tahmin Edilen Tamamlanacak Puan ve Tahmin Mantığı
+
+| Task | Story Point (SP) | Tahmin Gerekçesi |
+|------|------------------|------------------|
+| Patient & Entry CRUD endpointleri | 4 SP | Model bağlantısı da içeriyor |
+| Admin paneli ve kullanıcı yönetimi arayüzü | 4 SP | Frontend + backend bağlantısı |
+| Role tabanlı yönlendirme ve UI geçişleri | 3 SP | Rol bazlı görünüm geçişleri |
+| ReadMe ve proje dokümantasyonu | 2 SP | Sprint özetleri, API açıklamaları |
+| Teslim videosu ve proje demosu | 2 SP | Tanıtım, gösterim, test senaryoları |
+
+**Toplam SP:** 15 SP  
+**Sprint hedefi başarı oranı:** %100
+
+---
+
+### Sprint Gelişmeleri (Sprint Board Updates)
+
+| Durum | Task |
+|-------|------|
+| ✅ Yapıldı | Hasta ve giriş kayıt endpointleri eklendi |
+| ✅ Yapıldı | Admin arayüzü tamamlandı |
+| ✅ Yapıldı | Kullanıcı rol yönlendirmeleri uygulandı |
+| ✅ Yapıldı | ReadMe tamamlandı |
+| ✅ Yapıldı | Demo videosu çekildi |
+
+---
+
+### Ekran Görüntüleri
+
+> `routers/` klasöründe eklenen yeni hasta & giriş endpointleri  
+> Admin panelinin çalışan hali  
+> Arayüz yönlendirmelerinin rol bazlı ekran çıktıları  
+> Teslim ekranlarının örnek görüntüleri (admin login, hasta kaydı, vs.)
+
+---
+
+### Daily Scrum:
+
+•⁠ ⁠Platform: Google Meet  
+•⁠ ⁠Sıklık: Haftalık toplantılar  
+•⁠ ⁠İçerik:  
+- Kim ne yapıyor?  
+- Karşılaşılan engeller  
+- Teslim tarihine ne kadar kaldı?  
+•⁠ ⁠Notlar: WhatsApp üzerinden saklanmaktadır  
+•⁠ Product Backlog URL: https://trello.com/b/ZeRCIMNF/trello-panom
+
+---
+
+### Sprint Review
+
+- Entry ve Patient endpointleri ile kayıt sistemi tamamlandı.
+- Arayüz ve backend bağlantısı sağlandı, giriş ekranları sorunsuz çalışıyor.
+- Kullanıcı rolleri ve yetkileri yeniden düzenlendi.
+- Teslim için gerekli tüm hazırlıklar yapıldı ve proje sunuma hazır hale getirildi.
+
+---
+
+### Sprint Retrospective
+
+| Soru | Yanıt |
+|------|-------|
+| **Ne iyi gitti?** | Proje hedefleri eksiksiz tamamlandı ve ekip iş birliği üst düzeydi. |
+| **Ne geliştirilebilir?** | LLM ile gerçek model entegrasyonu yapılsaydı daha etkili olabilirdi. |
+| **Hangi engeller vardı?** | Projeyi sadeleştirme kararı sprint ortasında alındı. |
+| **İyileştirme önerisi?** | Proje başlangıcında model planlaması daha net yapılabilir. |
+
+</details>
